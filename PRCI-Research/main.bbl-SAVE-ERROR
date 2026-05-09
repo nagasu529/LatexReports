@@ -1,0 +1,1575 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{apa/apasortcite//global/global/global}
+    \entry{abdallah2016}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=328e94f434b3da1e20571b9921de98eb}{%
+           family={Abdallah},
+           familyi={A\bibinitperiod},
+           given={A.\bibnamedelimi H.},
+           giveni={A\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b99556fbdd95ce011d1302f63e07e707}{%
+           family={Abdul-Rahaman},
+           familyi={A\bibinithyphendelim R\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{6e32268222c56a4831399b01e1f355b7}
+      \strng{fullhash}{6e32268222c56a4831399b01e1f355b7}
+      \strng{fullhashraw}{6e32268222c56a4831399b01e1f355b7}
+      \strng{bibnamehash}{6e32268222c56a4831399b01e1f355b7}
+      \strng{authorbibnamehash}{6e32268222c56a4831399b01e1f355b7}
+      \strng{authornamehash}{6e32268222c56a4831399b01e1f355b7}
+      \strng{authorfullhash}{6e32268222c56a4831399b01e1f355b7}
+      \strng{authorfullhashraw}{6e32268222c56a4831399b01e1f355b7}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Asian Journal of Agricultural Extension, Economics and Sociology}
+      \field{number}{3}
+      \field{title}{Determinants of access to agricultural extension services}
+      \field{volume}{9}
+      \field{year}{2016}
+      \field{pages}{1\bibrangedash 8}
+      \range{pages}{8}
+    \endentry
+    \entry{abegunde2019}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=5bad006abe7179762f0d41a4c3aeaf1d}{%
+           family={Abegunde},
+           familyi={A\bibinitperiod},
+           given={V.\bibnamedelimi O.},
+           giveni={V\bibinitperiod\bibinitdelim O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8e294a8079a67f0f603be49b6e382e35}{%
+           family={Sibanda},
+           familyi={S\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0ba68fe1150c4f1d4bbdc651bce056f9}{%
+           family={Obi},
+           familyi={O\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d120bf7a54feb5722adcb7f466e9309b}
+      \strng{fullhash}{bc647c836e91c3da4a09548c14295341}
+      \strng{fullhashraw}{bc647c836e91c3da4a09548c14295341}
+      \strng{bibnamehash}{bc647c836e91c3da4a09548c14295341}
+      \strng{authorbibnamehash}{bc647c836e91c3da4a09548c14295341}
+      \strng{authornamehash}{d120bf7a54feb5722adcb7f466e9309b}
+      \strng{authorfullhash}{bc647c836e91c3da4a09548c14295341}
+      \strng{authorfullhashraw}{bc647c836e91c3da4a09548c14295341}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Sustainability}
+      \field{number}{1}
+      \field{title}{Determinants of adoption of climate-smart agricultural practices}
+      \field{volume}{12}
+      \field{year}{2019}
+      \true{nocite}
+      \field{pages}{195}
+      \range{pages}{1}
+    \endentry
+    \entry{adam2022}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=c520551d4bd618d3297a8c7c736b1d29}{%
+           family={Adam},
+           familyi={A\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8ea30eea4310ecc172342720514776ac}{%
+           family={Jin},
+           familyi={J\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5faa0905ce9e85252fbed0529647d36d}{%
+           family={Khan},
+           familyi={K\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5952438d9fbf65d01389c851c06f4ce1}
+      \strng{fullhash}{39c74fcba1c5305a9ddabe422a33e424}
+      \strng{fullhashraw}{39c74fcba1c5305a9ddabe422a33e424}
+      \strng{bibnamehash}{39c74fcba1c5305a9ddabe422a33e424}
+      \strng{authorbibnamehash}{39c74fcba1c5305a9ddabe422a33e424}
+      \strng{authornamehash}{5952438d9fbf65d01389c851c06f4ce1}
+      \strng{authorfullhash}{39c74fcba1c5305a9ddabe422a33e424}
+      \strng{authorfullhashraw}{39c74fcba1c5305a9ddabe422a33e424}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Technology in Society}
+      \field{title}{Farmer empowerment policy analysis}
+      \field{volume}{68}
+      \field{year}{2022}
+      \true{nocite}
+      \field{pages}{101924}
+      \range{pages}{1}
+    \endentry
+    \entry{aggarwal2018}{inbook}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=86d11a07b1bfeac58dc68f7a419b3039}{%
+           family={Aggarwal},
+           familyi={A\bibinitperiod},
+           given={Charu\bibnamedelima C.},
+           giveni={C\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{86d11a07b1bfeac58dc68f7a419b3039}
+      \strng{fullhash}{86d11a07b1bfeac58dc68f7a419b3039}
+      \strng{fullhashraw}{86d11a07b1bfeac58dc68f7a419b3039}
+      \strng{bibnamehash}{86d11a07b1bfeac58dc68f7a419b3039}
+      \strng{authorbibnamehash}{86d11a07b1bfeac58dc68f7a419b3039}
+      \strng{authornamehash}{86d11a07b1bfeac58dc68f7a419b3039}
+      \strng{authorfullhash}{86d11a07b1bfeac58dc68f7a419b3039}
+      \strng{authorfullhashraw}{86d11a07b1bfeac58dc68f7a419b3039}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Managing and Mining Graph Data}
+      \field{title}{An Introduction to Clustering}
+      \field{year}{2018}
+      \true{nocite}
+      \field{pages}{75\bibrangedash 101}
+      \range{pages}{27}
+    \endentry
+    \entry{anang2020}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=4c331bed5dd382382b33ca50d164ee38}{%
+           family={Anang},
+           familyi={A\bibinitperiod},
+           given={B.\bibnamedelimi T.},
+           giveni={B\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d21d93b3660c52878f76b9015bdacf2e}{%
+           family={Ayambila},
+           familyi={A\bibinitperiod},
+           given={S.\bibnamedelimi N.},
+           giveni={S\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{191a5989a920803a47361fa076edeb3c}
+      \strng{fullhash}{191a5989a920803a47361fa076edeb3c}
+      \strng{fullhashraw}{191a5989a920803a47361fa076edeb3c}
+      \strng{bibnamehash}{191a5989a920803a47361fa076edeb3c}
+      \strng{authorbibnamehash}{191a5989a920803a47361fa076edeb3c}
+      \strng{authornamehash}{191a5989a920803a47361fa076edeb3c}
+      \strng{authorfullhash}{191a5989a920803a47361fa076edeb3c}
+      \strng{authorfullhashraw}{191a5989a920803a47361fa076edeb3c}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal on Food System Dynamics}
+      \field{number}{3}
+      \field{title}{Participation in agricultural extension and labor productivity}
+      \field{volume}{11}
+      \field{year}{2020}
+      \field{pages}{297\bibrangedash 306}
+      \range{pages}{10}
+    \endentry
+    \entry{atsan2009}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=018293f4ac89d283cf7af207fa970f31}{%
+           family={Atsan},
+           familyi={A\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4c4e5fc60a1a8e8e6a24be72f532d82b}{%
+           family={Isik},
+           familyi={I\bibinitperiod},
+           given={H.\bibnamedelimi B.},
+           giveni={H\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1f6952749b565171a55b4a6d4ac88efb}{%
+           family={Yavuz},
+           familyi={Y\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bbf24ea1a835f7deed8173503ad66512}{%
+           family={Yurttas},
+           familyi={Y\bibinitperiod},
+           given={Z.},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d2f4f3e665bdf0b66e448aab9dbf7541}
+      \strng{fullhash}{4a71435e3d2616a72c38c915a6d64a68}
+      \strng{fullhashraw}{4a71435e3d2616a72c38c915a6d64a68}
+      \strng{bibnamehash}{4a71435e3d2616a72c38c915a6d64a68}
+      \strng{authorbibnamehash}{4a71435e3d2616a72c38c915a6d64a68}
+      \strng{authornamehash}{d2f4f3e665bdf0b66e448aab9dbf7541}
+      \strng{authorfullhash}{4a71435e3d2616a72c38c915a6d64a68}
+      \strng{authorfullhashraw}{4a71435e3d2616a72c38c915a6d64a68}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{African Journal of Agricultural Research}
+      \field{number}{4}
+      \field{title}{Factors affecting agricultural extension services}
+      \field{volume}{4}
+      \field{year}{2009}
+      \true{nocite}
+      \field{pages}{305\bibrangedash 310}
+      \range{pages}{6}
+    \endentry
+    \entry{charoensukmongkol2015}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=04d71be1fc439aa61ff66ac5d946e60e}{%
+           family={Charoensukmongkol},
+           familyi={C\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{04d71be1fc439aa61ff66ac5d946e60e}
+      \strng{fullhash}{04d71be1fc439aa61ff66ac5d946e60e}
+      \strng{fullhashraw}{04d71be1fc439aa61ff66ac5d946e60e}
+      \strng{bibnamehash}{04d71be1fc439aa61ff66ac5d946e60e}
+      \strng{authorbibnamehash}{04d71be1fc439aa61ff66ac5d946e60e}
+      \strng{authornamehash}{04d71be1fc439aa61ff66ac5d946e60e}
+      \strng{authorfullhash}{04d71be1fc439aa61ff66ac5d946e60e}
+      \strng{authorfullhashraw}{04d71be1fc439aa61ff66ac5d946e60e}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Agricultural Technology}
+      \field{number}{2}
+      \field{title}{Adoption of agricultural technologies in Thailand}
+      \field{volume}{11}
+      \field{year}{2015}
+      \true{nocite}
+      \field{pages}{259\bibrangedash 266}
+      \range{pages}{8}
+    \endentry
+    \entry{duang2019}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c154f6d4aeab411ef2b8a99c2a32ba33}{%
+           family={Duang-Ek-Anong},
+           familyi={D\bibinithyphendelim E\bibinithyphendelim A\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d794bfb22a1e2c3d88c28a91863f4efc}
+      \strng{fullhash}{d794bfb22a1e2c3d88c28a91863f4efc}
+      \strng{fullhashraw}{d794bfb22a1e2c3d88c28a91863f4efc}
+      \strng{bibnamehash}{d794bfb22a1e2c3d88c28a91863f4efc}
+      \strng{authorbibnamehash}{d794bfb22a1e2c3d88c28a91863f4efc}
+      \strng{authornamehash}{d794bfb22a1e2c3d88c28a91863f4efc}
+      \strng{authorfullhash}{d794bfb22a1e2c3d88c28a91863f4efc}
+      \strng{authorfullhashraw}{d794bfb22a1e2c3d88c28a91863f4efc}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Thai Agricultural Journal}
+      \field{title}{Technology adoption among aging farmers}
+      \field{volume}{8}
+      \field{year}{2019}
+      \field{pages}{33\bibrangedash 50}
+      \range{pages}{18}
+    \endentry
+    \entry{greene2003}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6aeaa164d917d0657b4f141378594e78}{%
+           family={Greene},
+           familyi={G\bibinitperiod},
+           given={William\bibnamedelima H.},
+           giveni={W\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Upper Saddle River}%
+      }
+      \list{publisher}{1}{%
+        {Prentice Hall}%
+      }
+      \strng{namehash}{6aeaa164d917d0657b4f141378594e78}
+      \strng{fullhash}{6aeaa164d917d0657b4f141378594e78}
+      \strng{fullhashraw}{6aeaa164d917d0657b4f141378594e78}
+      \strng{bibnamehash}{6aeaa164d917d0657b4f141378594e78}
+      \strng{authorbibnamehash}{6aeaa164d917d0657b4f141378594e78}
+      \strng{authornamehash}{6aeaa164d917d0657b4f141378594e78}
+      \strng{authorfullhash}{6aeaa164d917d0657b4f141378594e78}
+      \strng{authorfullhashraw}{6aeaa164d917d0657b4f141378594e78}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Econometric Analysis}
+      \field{year}{2003}
+      \true{nocite}
+    \endentry
+    \entry{hwang2024}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=fb6dac91a815b340df6c0c2279e0b292}{%
+           family={Hwang},
+           familyi={H\bibinitperiod},
+           given={B.\bibnamedelimi N.},
+           giveni={B\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5dec8afbb610357d2d33a858b030d297}{%
+           family={Jitanugoon},
+           familyi={J\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=438f8174638c583994b140d16caa86c8}{%
+           family={Puntha},
+           familyi={P\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ced3634bbaefaa00054c50543ee63a27}
+      \strng{fullhash}{de9c337b21df6609eebbdc6fd3650b9c}
+      \strng{fullhashraw}{de9c337b21df6609eebbdc6fd3650b9c}
+      \strng{bibnamehash}{de9c337b21df6609eebbdc6fd3650b9c}
+      \strng{authorbibnamehash}{de9c337b21df6609eebbdc6fd3650b9c}
+      \strng{authornamehash}{ced3634bbaefaa00054c50543ee63a27}
+      \strng{authorfullhash}{de9c337b21df6609eebbdc6fd3650b9c}
+      \strng{authorfullhashraw}{de9c337b21df6609eebbdc6fd3650b9c}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{KnE Social Sciences}
+      \field{title}{Impact of smart farming technology}
+      \field{year}{2024}
+      \field{pages}{971\bibrangedash 981}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.18502/kss.v9i32.17425
+      \endverb
+    \endentry
+    \entry{jansuwan2021}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=4c8ac3dc210cf2e00cf1974b4999777d}{%
+           family={Jansuwan},
+           familyi={J\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cb73a5b402e8179877494d9d9067cff1}{%
+           family={Zander},
+           familyi={Z\bibinitperiod},
+           given={K.\bibnamedelimi K.},
+           giveni={K\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{8237caf33e728516b452774d18caf0bd}
+      \strng{fullhash}{8237caf33e728516b452774d18caf0bd}
+      \strng{fullhashraw}{8237caf33e728516b452774d18caf0bd}
+      \strng{bibnamehash}{8237caf33e728516b452774d18caf0bd}
+      \strng{authorbibnamehash}{8237caf33e728516b452774d18caf0bd}
+      \strng{authornamehash}{8237caf33e728516b452774d18caf0bd}
+      \strng{authorfullhash}{8237caf33e728516b452774d18caf0bd}
+      \strng{authorfullhashraw}{8237caf33e728516b452774d18caf0bd}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Sustainability}
+      \field{number}{21}
+      \field{title}{Young smart farmer programme in Thailand}
+      \field{volume}{13}
+      \field{year}{2021}
+      \true{nocite}
+      \field{pages}{11611}
+      \range{pages}{1}
+    \endentry
+    \entry{jinjarak2550}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c12006dd90ec2c4ff8d653cd126c2dcb}{%
+           family={Jinjarak},
+           familyi={J\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c12006dd90ec2c4ff8d653cd126c2dcb}
+      \strng{fullhash}{c12006dd90ec2c4ff8d653cd126c2dcb}
+      \strng{fullhashraw}{c12006dd90ec2c4ff8d653cd126c2dcb}
+      \strng{bibnamehash}{c12006dd90ec2c4ff8d653cd126c2dcb}
+      \strng{authorbibnamehash}{c12006dd90ec2c4ff8d653cd126c2dcb}
+      \strng{authornamehash}{c12006dd90ec2c4ff8d653cd126c2dcb}
+      \strng{authorfullhash}{c12006dd90ec2c4ff8d653cd126c2dcb}
+      \strng{authorfullhashraw}{c12006dd90ec2c4ff8d653cd126c2dcb}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Asian Economics}
+      \field{number}{3}
+      \field{title}{Rice farmers and adoption of agricultural technology}
+      \field{volume}{18}
+      \field{year}{2007}
+      \field{pages}{478\bibrangedash 491}
+      \range{pages}{14}
+    \endentry
+    \entry{li2024}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=1,uniquepart=given,hash=317adb20c6b3ea65befa45a219f6410d}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=28d96b339abb5a7c03f064a099ee4f02}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{0017cca833e3acfa6b9ef70b54c7aa10}
+      \strng{fullhash}{0017cca833e3acfa6b9ef70b54c7aa10}
+      \strng{fullhashraw}{0017cca833e3acfa6b9ef70b54c7aa10}
+      \strng{bibnamehash}{0017cca833e3acfa6b9ef70b54c7aa10}
+      \strng{authorbibnamehash}{0017cca833e3acfa6b9ef70b54c7aa10}
+      \strng{authornamehash}{0017cca833e3acfa6b9ef70b54c7aa10}
+      \strng{authorfullhash}{0017cca833e3acfa6b9ef70b54c7aa10}
+      \strng{authorfullhashraw}{0017cca833e3acfa6b9ef70b54c7aa10}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{SSRN Electronic Journal}
+      \field{title}{PSM-DID analysis on farmers income}
+      \field{year}{2024}
+      \true{nocite}
+    \endentry
+    \entry{meechoovet2023}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=38447b44c4d994c7341eab5338ff8148}{%
+           family={Meechoovet},
+           familyi={M\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9f6cbbedc78730223f031af8dcf5a884}{%
+           family={Siriwato},
+           familyi={S\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{b2446a5c414d27b79d36c8f186732192}
+      \strng{fullhash}{b2446a5c414d27b79d36c8f186732192}
+      \strng{fullhashraw}{b2446a5c414d27b79d36c8f186732192}
+      \strng{bibnamehash}{b2446a5c414d27b79d36c8f186732192}
+      \strng{authorbibnamehash}{b2446a5c414d27b79d36c8f186732192}
+      \strng{authornamehash}{b2446a5c414d27b79d36c8f186732192}
+      \strng{authorfullhash}{b2446a5c414d27b79d36c8f186732192}
+      \strng{authorfullhashraw}{b2446a5c414d27b79d36c8f186732192}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Asian Political Science Review}
+      \field{number}{1}
+      \field{title}{Thailand’s smart agriculture impacts}
+      \field{volume}{7}
+      \field{year}{2023}
+      \field{pages}{1\bibrangedash 15}
+      \range{pages}{15}
+    \endentry
+    \entry{un2563}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2d661e9167bd3a268ea03a3ee152926c}{%
+           family={Nations},
+           familyi={N\bibinitperiod},
+           given={United},
+           giveni={U\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{2d661e9167bd3a268ea03a3ee152926c}
+      \strng{fullhash}{2d661e9167bd3a268ea03a3ee152926c}
+      \strng{fullhashraw}{2d661e9167bd3a268ea03a3ee152926c}
+      \strng{bibnamehash}{2d661e9167bd3a268ea03a3ee152926c}
+      \strng{authorbibnamehash}{2d661e9167bd3a268ea03a3ee152926c}
+      \strng{authornamehash}{2d661e9167bd3a268ea03a3ee152926c}
+      \strng{authorfullhash}{2d661e9167bd3a268ea03a3ee152926c}
+      \strng{authorfullhashraw}{2d661e9167bd3a268ea03a3ee152926c}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Thai agricultural sector: From problems to solutions}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://thailand.un.org/en/103307
+      \endverb
+      \verb{url}
+      \verb https://thailand.un.org/en/103307
+      \endverb
+    \endentry
+    \entry{olounlade2020}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=1aed1fbab947d8b6d4c2f7cedde914f9}{%
+           family={Olounlade},
+           familyi={O\bibinitperiod},
+           given={O.\bibnamedelimi A.},
+           giveni={O\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=1,uniquepart=given,hash=e06e93632a2219abdb83ab186a25f6a7}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={G.-C.},
+           giveni={G\bibinithyphendelim C\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=3b2409932faf96db13846a943111701d}{%
+           family={Kokoye},
+           familyi={K\bibinitperiod},
+           given={S.\bibnamedelimi E.\bibnamedelimi H.},
+           giveni={S\bibinitperiod\bibinitdelim E\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d641dc760b1c9b716c06d88ba1bc6a5a}
+      \strng{fullhash}{42495a0bda23a71032e6afe6ea644c81}
+      \strng{fullhashraw}{42495a0bda23a71032e6afe6ea644c81}
+      \strng{bibnamehash}{42495a0bda23a71032e6afe6ea644c81}
+      \strng{authorbibnamehash}{42495a0bda23a71032e6afe6ea644c81}
+      \strng{authornamehash}{d641dc760b1c9b716c06d88ba1bc6a5a}
+      \strng{authorfullhash}{42495a0bda23a71032e6afe6ea644c81}
+      \strng{authorfullhashraw}{42495a0bda23a71032e6afe6ea644c81}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Sustainability}
+      \field{number}{3}
+      \field{title}{Contract farming impact on income}
+      \field{volume}{12}
+      \field{year}{2020}
+      \true{nocite}
+      \field{pages}{901}
+      \range{pages}{1}
+    \endentry
+    \entry{nation2023}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=cf95658c2ffa5b25bcdf3a8912429101}{%
+           family={Thailand},
+           familyi={T\bibinitperiod},
+           given={The\bibnamedelima Nation},
+           giveni={T\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{cf95658c2ffa5b25bcdf3a8912429101}
+      \strng{fullhash}{cf95658c2ffa5b25bcdf3a8912429101}
+      \strng{fullhashraw}{cf95658c2ffa5b25bcdf3a8912429101}
+      \strng{bibnamehash}{cf95658c2ffa5b25bcdf3a8912429101}
+      \strng{authorbibnamehash}{cf95658c2ffa5b25bcdf3a8912429101}
+      \strng{authornamehash}{cf95658c2ffa5b25bcdf3a8912429101}
+      \strng{authorfullhash}{cf95658c2ffa5b25bcdf3a8912429101}
+      \strng{authorfullhashraw}{cf95658c2ffa5b25bcdf3a8912429101}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Smart farmers and Thailand agriculture}
+      \field{year}{2023}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.nationthailand.com/pr-news/nation-50-year/40002661
+      \endverb
+      \verb{url}
+      \verb https://www.nationthailand.com/pr-news/nation-50-year/40002661
+      \endverb
+    \endentry
+    \entry{wooldridge2009}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c93aeef4998e670d5343b7e632c431dc}{%
+           family={Wooldridge},
+           familyi={W\bibinitperiod},
+           given={Jeffrey\bibnamedelima M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Mason}%
+      }
+      \list{publisher}{1}{%
+        {South-Western}%
+      }
+      \strng{namehash}{c93aeef4998e670d5343b7e632c431dc}
+      \strng{fullhash}{c93aeef4998e670d5343b7e632c431dc}
+      \strng{fullhashraw}{c93aeef4998e670d5343b7e632c431dc}
+      \strng{bibnamehash}{c93aeef4998e670d5343b7e632c431dc}
+      \strng{authorbibnamehash}{c93aeef4998e670d5343b7e632c431dc}
+      \strng{authornamehash}{c93aeef4998e670d5343b7e632c431dc}
+      \strng{authorfullhash}{c93aeef4998e670d5343b7e632c431dc}
+      \strng{authorfullhashraw}{c93aeef4998e670d5343b7e632c431dc}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Introductory Econometrics: A Modern Approach}
+      \field{year}{2009}
+      \true{nocite}
+    \endentry
+    \entry{thongpan2556}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=fe4f4e724974d219a5613130abdc9319}{%
+           family={ทองปาน},
+           familyi={ท\bibinitperiod}}}%
+      }
+      \strng{namehash}{fe4f4e724974d219a5613130abdc9319}
+      \strng{fullhash}{fe4f4e724974d219a5613130abdc9319}
+      \strng{fullhashraw}{fe4f4e724974d219a5613130abdc9319}
+      \strng{bibnamehash}{fe4f4e724974d219a5613130abdc9319}
+      \strng{authorbibnamehash}{fe4f4e724974d219a5613130abdc9319}
+      \strng{authornamehash}{fe4f4e724974d219a5613130abdc9319}
+      \strng{authorfullhash}{fe4f4e724974d219a5613130abdc9319}
+      \strng{authorfullhashraw}{fe4f4e724974d219a5613130abdc9319}
+      \field{sortinit}{ท}
+      \field{sortinithash}{c0998dac911e4e8d1cb780ac3be3d3c4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{วารสารเกษตรศาสตร์}
+      \field{title}{การใช้เทคโนโลยีในภาคเกษตร}
+      \field{year}{2556}
+      \field{pages}{10\bibrangedash 25}
+      \range{pages}{16}
+    \endentry
+    \entry{rueatee2557}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2dabcaf984345c81436c1ef32ddfbd16}{%
+           family={รูเอเต้},
+           familyi={รู\bibinitperiod}}}%
+      }
+      \strng{namehash}{2dabcaf984345c81436c1ef32ddfbd16}
+      \strng{fullhash}{2dabcaf984345c81436c1ef32ddfbd16}
+      \strng{fullhashraw}{2dabcaf984345c81436c1ef32ddfbd16}
+      \strng{bibnamehash}{2dabcaf984345c81436c1ef32ddfbd16}
+      \strng{authorbibnamehash}{2dabcaf984345c81436c1ef32ddfbd16}
+      \strng{authornamehash}{2dabcaf984345c81436c1ef32ddfbd16}
+      \strng{authorfullhash}{2dabcaf984345c81436c1ef32ddfbd16}
+      \strng{authorfullhashraw}{2dabcaf984345c81436c1ef32ddfbd16}
+      \field{sortinit}{รู}
+      \field{sortinithash}{8ade408eecc939a1371725f9c4bca227}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{วารสารพัฒนาเศรษฐกิจ}
+      \field{title}{บทบาทเทคโนโลยีในการพัฒนาเกษตร}
+      \field{year}{2557}
+      \field{pages}{15\bibrangedash 30}
+      \range{pages}{16}
+    \endentry
+    \entry{chadarat2562}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=cf7215dbe0ed178d1b843c02dd8140fb}{%
+           family={และคณะ},
+           familyi={แ\bibinitperiod},
+           given={ชฎารัตน์},
+           giveni={ช\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{cf7215dbe0ed178d1b843c02dd8140fb}
+      \strng{fullhash}{cf7215dbe0ed178d1b843c02dd8140fb}
+      \strng{fullhashraw}{cf7215dbe0ed178d1b843c02dd8140fb}
+      \strng{bibnamehash}{cf7215dbe0ed178d1b843c02dd8140fb}
+      \strng{authorbibnamehash}{cf7215dbe0ed178d1b843c02dd8140fb}
+      \strng{authornamehash}{cf7215dbe0ed178d1b843c02dd8140fb}
+      \strng{authorfullhash}{cf7215dbe0ed178d1b843c02dd8140fb}
+      \strng{authorfullhashraw}{cf7215dbe0ed178d1b843c02dd8140fb}
+      \field{sortinit}{แ}
+      \field{sortinithash}{f56c92e71b1aeef2378d17411ef6c298}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{วารสารเศรษฐศาสตร์เกษตร}
+      \field{title}{ปัจจัยความเสี่ยงในภาคเกษตรไทย}
+      \field{year}{2562}
+      \field{pages}{45\bibrangedash 62}
+      \range{pages}{18}
+    \endentry
+  \enddatalist
+  \datalist[entry]{apa/global//global/global/global}
+    \entry{abdallah2016}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=328e94f434b3da1e20571b9921de98eb}{%
+           family={Abdallah},
+           familyi={A\bibinitperiod},
+           given={A.\bibnamedelimi H.},
+           giveni={A\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b99556fbdd95ce011d1302f63e07e707}{%
+           family={Abdul-Rahaman},
+           familyi={A\bibinithyphendelim R\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{6e32268222c56a4831399b01e1f355b7}
+      \strng{fullhash}{6e32268222c56a4831399b01e1f355b7}
+      \strng{fullhashraw}{6e32268222c56a4831399b01e1f355b7}
+      \strng{bibnamehash}{6e32268222c56a4831399b01e1f355b7}
+      \strng{authorbibnamehash}{6e32268222c56a4831399b01e1f355b7}
+      \strng{authornamehash}{6e32268222c56a4831399b01e1f355b7}
+      \strng{authorfullhash}{6e32268222c56a4831399b01e1f355b7}
+      \strng{authorfullhashraw}{6e32268222c56a4831399b01e1f355b7}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Asian Journal of Agricultural Extension, Economics and Sociology}
+      \field{number}{3}
+      \field{title}{Determinants of access to agricultural extension services}
+      \field{volume}{9}
+      \field{year}{2016}
+      \field{pages}{1\bibrangedash 8}
+      \range{pages}{8}
+    \endentry
+    \entry{abegunde2019}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=5bad006abe7179762f0d41a4c3aeaf1d}{%
+           family={Abegunde},
+           familyi={A\bibinitperiod},
+           given={V.\bibnamedelimi O.},
+           giveni={V\bibinitperiod\bibinitdelim O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8e294a8079a67f0f603be49b6e382e35}{%
+           family={Sibanda},
+           familyi={S\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0ba68fe1150c4f1d4bbdc651bce056f9}{%
+           family={Obi},
+           familyi={O\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d120bf7a54feb5722adcb7f466e9309b}
+      \strng{fullhash}{bc647c836e91c3da4a09548c14295341}
+      \strng{fullhashraw}{bc647c836e91c3da4a09548c14295341}
+      \strng{bibnamehash}{bc647c836e91c3da4a09548c14295341}
+      \strng{authorbibnamehash}{bc647c836e91c3da4a09548c14295341}
+      \strng{authornamehash}{d120bf7a54feb5722adcb7f466e9309b}
+      \strng{authorfullhash}{bc647c836e91c3da4a09548c14295341}
+      \strng{authorfullhashraw}{bc647c836e91c3da4a09548c14295341}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Sustainability}
+      \field{number}{1}
+      \field{title}{Determinants of adoption of climate-smart agricultural practices}
+      \field{volume}{12}
+      \field{year}{2019}
+      \true{nocite}
+      \field{pages}{195}
+      \range{pages}{1}
+    \endentry
+    \entry{adam2022}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=c520551d4bd618d3297a8c7c736b1d29}{%
+           family={Adam},
+           familyi={A\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8ea30eea4310ecc172342720514776ac}{%
+           family={Jin},
+           familyi={J\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5faa0905ce9e85252fbed0529647d36d}{%
+           family={Khan},
+           familyi={K\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5952438d9fbf65d01389c851c06f4ce1}
+      \strng{fullhash}{39c74fcba1c5305a9ddabe422a33e424}
+      \strng{fullhashraw}{39c74fcba1c5305a9ddabe422a33e424}
+      \strng{bibnamehash}{39c74fcba1c5305a9ddabe422a33e424}
+      \strng{authorbibnamehash}{39c74fcba1c5305a9ddabe422a33e424}
+      \strng{authornamehash}{5952438d9fbf65d01389c851c06f4ce1}
+      \strng{authorfullhash}{39c74fcba1c5305a9ddabe422a33e424}
+      \strng{authorfullhashraw}{39c74fcba1c5305a9ddabe422a33e424}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Technology in Society}
+      \field{title}{Farmer empowerment policy analysis}
+      \field{volume}{68}
+      \field{year}{2022}
+      \true{nocite}
+      \field{pages}{101924}
+      \range{pages}{1}
+    \endentry
+    \entry{aggarwal2018}{inbook}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=86d11a07b1bfeac58dc68f7a419b3039}{%
+           family={Aggarwal},
+           familyi={A\bibinitperiod},
+           given={Charu\bibnamedelima C.},
+           giveni={C\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{86d11a07b1bfeac58dc68f7a419b3039}
+      \strng{fullhash}{86d11a07b1bfeac58dc68f7a419b3039}
+      \strng{fullhashraw}{86d11a07b1bfeac58dc68f7a419b3039}
+      \strng{bibnamehash}{86d11a07b1bfeac58dc68f7a419b3039}
+      \strng{authorbibnamehash}{86d11a07b1bfeac58dc68f7a419b3039}
+      \strng{authornamehash}{86d11a07b1bfeac58dc68f7a419b3039}
+      \strng{authorfullhash}{86d11a07b1bfeac58dc68f7a419b3039}
+      \strng{authorfullhashraw}{86d11a07b1bfeac58dc68f7a419b3039}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Managing and Mining Graph Data}
+      \field{title}{An Introduction to Clustering}
+      \field{year}{2018}
+      \true{nocite}
+      \field{pages}{75\bibrangedash 101}
+      \range{pages}{27}
+    \endentry
+    \entry{anang2020}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=4c331bed5dd382382b33ca50d164ee38}{%
+           family={Anang},
+           familyi={A\bibinitperiod},
+           given={B.\bibnamedelimi T.},
+           giveni={B\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d21d93b3660c52878f76b9015bdacf2e}{%
+           family={Ayambila},
+           familyi={A\bibinitperiod},
+           given={S.\bibnamedelimi N.},
+           giveni={S\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{191a5989a920803a47361fa076edeb3c}
+      \strng{fullhash}{191a5989a920803a47361fa076edeb3c}
+      \strng{fullhashraw}{191a5989a920803a47361fa076edeb3c}
+      \strng{bibnamehash}{191a5989a920803a47361fa076edeb3c}
+      \strng{authorbibnamehash}{191a5989a920803a47361fa076edeb3c}
+      \strng{authornamehash}{191a5989a920803a47361fa076edeb3c}
+      \strng{authorfullhash}{191a5989a920803a47361fa076edeb3c}
+      \strng{authorfullhashraw}{191a5989a920803a47361fa076edeb3c}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal on Food System Dynamics}
+      \field{number}{3}
+      \field{title}{Participation in agricultural extension and labor productivity}
+      \field{volume}{11}
+      \field{year}{2020}
+      \field{pages}{297\bibrangedash 306}
+      \range{pages}{10}
+    \endentry
+    \entry{atsan2009}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=018293f4ac89d283cf7af207fa970f31}{%
+           family={Atsan},
+           familyi={A\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4c4e5fc60a1a8e8e6a24be72f532d82b}{%
+           family={Isik},
+           familyi={I\bibinitperiod},
+           given={H.\bibnamedelimi B.},
+           giveni={H\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1f6952749b565171a55b4a6d4ac88efb}{%
+           family={Yavuz},
+           familyi={Y\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bbf24ea1a835f7deed8173503ad66512}{%
+           family={Yurttas},
+           familyi={Y\bibinitperiod},
+           given={Z.},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d2f4f3e665bdf0b66e448aab9dbf7541}
+      \strng{fullhash}{4a71435e3d2616a72c38c915a6d64a68}
+      \strng{fullhashraw}{4a71435e3d2616a72c38c915a6d64a68}
+      \strng{bibnamehash}{4a71435e3d2616a72c38c915a6d64a68}
+      \strng{authorbibnamehash}{4a71435e3d2616a72c38c915a6d64a68}
+      \strng{authornamehash}{d2f4f3e665bdf0b66e448aab9dbf7541}
+      \strng{authorfullhash}{4a71435e3d2616a72c38c915a6d64a68}
+      \strng{authorfullhashraw}{4a71435e3d2616a72c38c915a6d64a68}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{African Journal of Agricultural Research}
+      \field{number}{4}
+      \field{title}{Factors affecting agricultural extension services}
+      \field{volume}{4}
+      \field{year}{2009}
+      \true{nocite}
+      \field{pages}{305\bibrangedash 310}
+      \range{pages}{6}
+    \endentry
+    \entry{charoensukmongkol2015}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=04d71be1fc439aa61ff66ac5d946e60e}{%
+           family={Charoensukmongkol},
+           familyi={C\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{04d71be1fc439aa61ff66ac5d946e60e}
+      \strng{fullhash}{04d71be1fc439aa61ff66ac5d946e60e}
+      \strng{fullhashraw}{04d71be1fc439aa61ff66ac5d946e60e}
+      \strng{bibnamehash}{04d71be1fc439aa61ff66ac5d946e60e}
+      \strng{authorbibnamehash}{04d71be1fc439aa61ff66ac5d946e60e}
+      \strng{authornamehash}{04d71be1fc439aa61ff66ac5d946e60e}
+      \strng{authorfullhash}{04d71be1fc439aa61ff66ac5d946e60e}
+      \strng{authorfullhashraw}{04d71be1fc439aa61ff66ac5d946e60e}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Agricultural Technology}
+      \field{number}{2}
+      \field{title}{Adoption of agricultural technologies in Thailand}
+      \field{volume}{11}
+      \field{year}{2015}
+      \true{nocite}
+      \field{pages}{259\bibrangedash 266}
+      \range{pages}{8}
+    \endentry
+    \entry{duang2019}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c154f6d4aeab411ef2b8a99c2a32ba33}{%
+           family={Duang-Ek-Anong},
+           familyi={D\bibinithyphendelim E\bibinithyphendelim A\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d794bfb22a1e2c3d88c28a91863f4efc}
+      \strng{fullhash}{d794bfb22a1e2c3d88c28a91863f4efc}
+      \strng{fullhashraw}{d794bfb22a1e2c3d88c28a91863f4efc}
+      \strng{bibnamehash}{d794bfb22a1e2c3d88c28a91863f4efc}
+      \strng{authorbibnamehash}{d794bfb22a1e2c3d88c28a91863f4efc}
+      \strng{authornamehash}{d794bfb22a1e2c3d88c28a91863f4efc}
+      \strng{authorfullhash}{d794bfb22a1e2c3d88c28a91863f4efc}
+      \strng{authorfullhashraw}{d794bfb22a1e2c3d88c28a91863f4efc}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Thai Agricultural Journal}
+      \field{title}{Technology adoption among aging farmers}
+      \field{volume}{8}
+      \field{year}{2019}
+      \field{pages}{33\bibrangedash 50}
+      \range{pages}{18}
+    \endentry
+    \entry{greene2003}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6aeaa164d917d0657b4f141378594e78}{%
+           family={Greene},
+           familyi={G\bibinitperiod},
+           given={William\bibnamedelima H.},
+           giveni={W\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Upper Saddle River}%
+      }
+      \list{publisher}{1}{%
+        {Prentice Hall}%
+      }
+      \strng{namehash}{6aeaa164d917d0657b4f141378594e78}
+      \strng{fullhash}{6aeaa164d917d0657b4f141378594e78}
+      \strng{fullhashraw}{6aeaa164d917d0657b4f141378594e78}
+      \strng{bibnamehash}{6aeaa164d917d0657b4f141378594e78}
+      \strng{authorbibnamehash}{6aeaa164d917d0657b4f141378594e78}
+      \strng{authornamehash}{6aeaa164d917d0657b4f141378594e78}
+      \strng{authorfullhash}{6aeaa164d917d0657b4f141378594e78}
+      \strng{authorfullhashraw}{6aeaa164d917d0657b4f141378594e78}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Econometric Analysis}
+      \field{year}{2003}
+      \true{nocite}
+    \endentry
+    \entry{hwang2024}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=fb6dac91a815b340df6c0c2279e0b292}{%
+           family={Hwang},
+           familyi={H\bibinitperiod},
+           given={B.\bibnamedelimi N.},
+           giveni={B\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5dec8afbb610357d2d33a858b030d297}{%
+           family={Jitanugoon},
+           familyi={J\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=438f8174638c583994b140d16caa86c8}{%
+           family={Puntha},
+           familyi={P\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ced3634bbaefaa00054c50543ee63a27}
+      \strng{fullhash}{de9c337b21df6609eebbdc6fd3650b9c}
+      \strng{fullhashraw}{de9c337b21df6609eebbdc6fd3650b9c}
+      \strng{bibnamehash}{de9c337b21df6609eebbdc6fd3650b9c}
+      \strng{authorbibnamehash}{de9c337b21df6609eebbdc6fd3650b9c}
+      \strng{authornamehash}{ced3634bbaefaa00054c50543ee63a27}
+      \strng{authorfullhash}{de9c337b21df6609eebbdc6fd3650b9c}
+      \strng{authorfullhashraw}{de9c337b21df6609eebbdc6fd3650b9c}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{KnE Social Sciences}
+      \field{title}{Impact of smart farming technology}
+      \field{year}{2024}
+      \field{pages}{971\bibrangedash 981}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.18502/kss.v9i32.17425
+      \endverb
+    \endentry
+    \entry{jansuwan2021}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=4c8ac3dc210cf2e00cf1974b4999777d}{%
+           family={Jansuwan},
+           familyi={J\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cb73a5b402e8179877494d9d9067cff1}{%
+           family={Zander},
+           familyi={Z\bibinitperiod},
+           given={K.\bibnamedelimi K.},
+           giveni={K\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{8237caf33e728516b452774d18caf0bd}
+      \strng{fullhash}{8237caf33e728516b452774d18caf0bd}
+      \strng{fullhashraw}{8237caf33e728516b452774d18caf0bd}
+      \strng{bibnamehash}{8237caf33e728516b452774d18caf0bd}
+      \strng{authorbibnamehash}{8237caf33e728516b452774d18caf0bd}
+      \strng{authornamehash}{8237caf33e728516b452774d18caf0bd}
+      \strng{authorfullhash}{8237caf33e728516b452774d18caf0bd}
+      \strng{authorfullhashraw}{8237caf33e728516b452774d18caf0bd}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Sustainability}
+      \field{number}{21}
+      \field{title}{Young smart farmer programme in Thailand}
+      \field{volume}{13}
+      \field{year}{2021}
+      \true{nocite}
+      \field{pages}{11611}
+      \range{pages}{1}
+    \endentry
+    \entry{jinjarak2550}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c12006dd90ec2c4ff8d653cd126c2dcb}{%
+           family={Jinjarak},
+           familyi={J\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c12006dd90ec2c4ff8d653cd126c2dcb}
+      \strng{fullhash}{c12006dd90ec2c4ff8d653cd126c2dcb}
+      \strng{fullhashraw}{c12006dd90ec2c4ff8d653cd126c2dcb}
+      \strng{bibnamehash}{c12006dd90ec2c4ff8d653cd126c2dcb}
+      \strng{authorbibnamehash}{c12006dd90ec2c4ff8d653cd126c2dcb}
+      \strng{authornamehash}{c12006dd90ec2c4ff8d653cd126c2dcb}
+      \strng{authorfullhash}{c12006dd90ec2c4ff8d653cd126c2dcb}
+      \strng{authorfullhashraw}{c12006dd90ec2c4ff8d653cd126c2dcb}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Asian Economics}
+      \field{number}{3}
+      \field{title}{Rice farmers and adoption of agricultural technology}
+      \field{volume}{18}
+      \field{year}{2007}
+      \field{pages}{478\bibrangedash 491}
+      \range{pages}{14}
+    \endentry
+    \entry{li2024}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=1,uniquepart=given,hash=317adb20c6b3ea65befa45a219f6410d}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=28d96b339abb5a7c03f064a099ee4f02}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{0017cca833e3acfa6b9ef70b54c7aa10}
+      \strng{fullhash}{0017cca833e3acfa6b9ef70b54c7aa10}
+      \strng{fullhashraw}{0017cca833e3acfa6b9ef70b54c7aa10}
+      \strng{bibnamehash}{0017cca833e3acfa6b9ef70b54c7aa10}
+      \strng{authorbibnamehash}{0017cca833e3acfa6b9ef70b54c7aa10}
+      \strng{authornamehash}{0017cca833e3acfa6b9ef70b54c7aa10}
+      \strng{authorfullhash}{0017cca833e3acfa6b9ef70b54c7aa10}
+      \strng{authorfullhashraw}{0017cca833e3acfa6b9ef70b54c7aa10}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{SSRN Electronic Journal}
+      \field{title}{PSM-DID analysis on farmers income}
+      \field{year}{2024}
+      \true{nocite}
+    \endentry
+    \entry{meechoovet2023}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=38447b44c4d994c7341eab5338ff8148}{%
+           family={Meechoovet},
+           familyi={M\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9f6cbbedc78730223f031af8dcf5a884}{%
+           family={Siriwato},
+           familyi={S\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{b2446a5c414d27b79d36c8f186732192}
+      \strng{fullhash}{b2446a5c414d27b79d36c8f186732192}
+      \strng{fullhashraw}{b2446a5c414d27b79d36c8f186732192}
+      \strng{bibnamehash}{b2446a5c414d27b79d36c8f186732192}
+      \strng{authorbibnamehash}{b2446a5c414d27b79d36c8f186732192}
+      \strng{authornamehash}{b2446a5c414d27b79d36c8f186732192}
+      \strng{authorfullhash}{b2446a5c414d27b79d36c8f186732192}
+      \strng{authorfullhashraw}{b2446a5c414d27b79d36c8f186732192}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Asian Political Science Review}
+      \field{number}{1}
+      \field{title}{Thailand’s smart agriculture impacts}
+      \field{volume}{7}
+      \field{year}{2023}
+      \field{pages}{1\bibrangedash 15}
+      \range{pages}{15}
+    \endentry
+    \entry{un2563}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2d661e9167bd3a268ea03a3ee152926c}{%
+           family={Nations},
+           familyi={N\bibinitperiod},
+           given={United},
+           giveni={U\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{2d661e9167bd3a268ea03a3ee152926c}
+      \strng{fullhash}{2d661e9167bd3a268ea03a3ee152926c}
+      \strng{fullhashraw}{2d661e9167bd3a268ea03a3ee152926c}
+      \strng{bibnamehash}{2d661e9167bd3a268ea03a3ee152926c}
+      \strng{authorbibnamehash}{2d661e9167bd3a268ea03a3ee152926c}
+      \strng{authornamehash}{2d661e9167bd3a268ea03a3ee152926c}
+      \strng{authorfullhash}{2d661e9167bd3a268ea03a3ee152926c}
+      \strng{authorfullhashraw}{2d661e9167bd3a268ea03a3ee152926c}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Thai agricultural sector: From problems to solutions}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://thailand.un.org/en/103307
+      \endverb
+      \verb{url}
+      \verb https://thailand.un.org/en/103307
+      \endverb
+    \endentry
+    \entry{olounlade2020}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=1aed1fbab947d8b6d4c2f7cedde914f9}{%
+           family={Olounlade},
+           familyi={O\bibinitperiod},
+           given={O.\bibnamedelimi A.},
+           giveni={O\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=1,uniquepart=given,hash=e06e93632a2219abdb83ab186a25f6a7}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={G.-C.},
+           giveni={G\bibinithyphendelim C\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=3b2409932faf96db13846a943111701d}{%
+           family={Kokoye},
+           familyi={K\bibinitperiod},
+           given={S.\bibnamedelimi E.\bibnamedelimi H.},
+           giveni={S\bibinitperiod\bibinitdelim E\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d641dc760b1c9b716c06d88ba1bc6a5a}
+      \strng{fullhash}{42495a0bda23a71032e6afe6ea644c81}
+      \strng{fullhashraw}{42495a0bda23a71032e6afe6ea644c81}
+      \strng{bibnamehash}{42495a0bda23a71032e6afe6ea644c81}
+      \strng{authorbibnamehash}{42495a0bda23a71032e6afe6ea644c81}
+      \strng{authornamehash}{d641dc760b1c9b716c06d88ba1bc6a5a}
+      \strng{authorfullhash}{42495a0bda23a71032e6afe6ea644c81}
+      \strng{authorfullhashraw}{42495a0bda23a71032e6afe6ea644c81}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Sustainability}
+      \field{number}{3}
+      \field{title}{Contract farming impact on income}
+      \field{volume}{12}
+      \field{year}{2020}
+      \true{nocite}
+      \field{pages}{901}
+      \range{pages}{1}
+    \endentry
+    \entry{nation2023}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=cf95658c2ffa5b25bcdf3a8912429101}{%
+           family={Thailand},
+           familyi={T\bibinitperiod},
+           given={The\bibnamedelima Nation},
+           giveni={T\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{cf95658c2ffa5b25bcdf3a8912429101}
+      \strng{fullhash}{cf95658c2ffa5b25bcdf3a8912429101}
+      \strng{fullhashraw}{cf95658c2ffa5b25bcdf3a8912429101}
+      \strng{bibnamehash}{cf95658c2ffa5b25bcdf3a8912429101}
+      \strng{authorbibnamehash}{cf95658c2ffa5b25bcdf3a8912429101}
+      \strng{authornamehash}{cf95658c2ffa5b25bcdf3a8912429101}
+      \strng{authorfullhash}{cf95658c2ffa5b25bcdf3a8912429101}
+      \strng{authorfullhashraw}{cf95658c2ffa5b25bcdf3a8912429101}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Smart farmers and Thailand agriculture}
+      \field{year}{2023}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.nationthailand.com/pr-news/nation-50-year/40002661
+      \endverb
+      \verb{url}
+      \verb https://www.nationthailand.com/pr-news/nation-50-year/40002661
+      \endverb
+    \endentry
+    \entry{wooldridge2009}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c93aeef4998e670d5343b7e632c431dc}{%
+           family={Wooldridge},
+           familyi={W\bibinitperiod},
+           given={Jeffrey\bibnamedelima M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Mason}%
+      }
+      \list{publisher}{1}{%
+        {South-Western}%
+      }
+      \strng{namehash}{c93aeef4998e670d5343b7e632c431dc}
+      \strng{fullhash}{c93aeef4998e670d5343b7e632c431dc}
+      \strng{fullhashraw}{c93aeef4998e670d5343b7e632c431dc}
+      \strng{bibnamehash}{c93aeef4998e670d5343b7e632c431dc}
+      \strng{authorbibnamehash}{c93aeef4998e670d5343b7e632c431dc}
+      \strng{authornamehash}{c93aeef4998e670d5343b7e632c431dc}
+      \strng{authorfullhash}{c93aeef4998e670d5343b7e632c431dc}
+      \strng{authorfullhashraw}{c93aeef4998e670d5343b7e632c431dc}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Introductory Econometrics: A Modern Approach}
+      \field{year}{2009}
+      \true{nocite}
+    \endentry
+    \entry{thongpan2556}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=fe4f4e724974d219a5613130abdc9319}{%
+           family={ทองปาน},
+           familyi={ท\bibinitperiod}}}%
+      }
+      \strng{namehash}{fe4f4e724974d219a5613130abdc9319}
+      \strng{fullhash}{fe4f4e724974d219a5613130abdc9319}
+      \strng{fullhashraw}{fe4f4e724974d219a5613130abdc9319}
+      \strng{bibnamehash}{fe4f4e724974d219a5613130abdc9319}
+      \strng{authorbibnamehash}{fe4f4e724974d219a5613130abdc9319}
+      \strng{authornamehash}{fe4f4e724974d219a5613130abdc9319}
+      \strng{authorfullhash}{fe4f4e724974d219a5613130abdc9319}
+      \strng{authorfullhashraw}{fe4f4e724974d219a5613130abdc9319}
+      \field{sortinit}{ท}
+      \field{sortinithash}{c0998dac911e4e8d1cb780ac3be3d3c4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{วารสารเกษตรศาสตร์}
+      \field{title}{การใช้เทคโนโลยีในภาคเกษตร}
+      \field{year}{2556}
+      \field{pages}{10\bibrangedash 25}
+      \range{pages}{16}
+    \endentry
+    \entry{rueatee2557}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2dabcaf984345c81436c1ef32ddfbd16}{%
+           family={รูเอเต้},
+           familyi={รู\bibinitperiod}}}%
+      }
+      \strng{namehash}{2dabcaf984345c81436c1ef32ddfbd16}
+      \strng{fullhash}{2dabcaf984345c81436c1ef32ddfbd16}
+      \strng{fullhashraw}{2dabcaf984345c81436c1ef32ddfbd16}
+      \strng{bibnamehash}{2dabcaf984345c81436c1ef32ddfbd16}
+      \strng{authorbibnamehash}{2dabcaf984345c81436c1ef32ddfbd16}
+      \strng{authornamehash}{2dabcaf984345c81436c1ef32ddfbd16}
+      \strng{authorfullhash}{2dabcaf984345c81436c1ef32ddfbd16}
+      \strng{authorfullhashraw}{2dabcaf984345c81436c1ef32ddfbd16}
+      \field{sortinit}{รู}
+      \field{sortinithash}{8ade408eecc939a1371725f9c4bca227}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{วารสารพัฒนาเศรษฐกิจ}
+      \field{title}{บทบาทเทคโนโลยีในการพัฒนาเกษตร}
+      \field{year}{2557}
+      \field{pages}{15\bibrangedash 30}
+      \range{pages}{16}
+    \endentry
+    \entry{chadarat2562}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=cf7215dbe0ed178d1b843c02dd8140fb}{%
+           family={และคณะ},
+           familyi={แ\bibinitperiod},
+           given={ชฎารัตน์},
+           giveni={ช\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{cf7215dbe0ed178d1b843c02dd8140fb}
+      \strng{fullhash}{cf7215dbe0ed178d1b843c02dd8140fb}
+      \strng{fullhashraw}{cf7215dbe0ed178d1b843c02dd8140fb}
+      \strng{bibnamehash}{cf7215dbe0ed178d1b843c02dd8140fb}
+      \strng{authorbibnamehash}{cf7215dbe0ed178d1b843c02dd8140fb}
+      \strng{authornamehash}{cf7215dbe0ed178d1b843c02dd8140fb}
+      \strng{authorfullhash}{cf7215dbe0ed178d1b843c02dd8140fb}
+      \strng{authorfullhashraw}{cf7215dbe0ed178d1b843c02dd8140fb}
+      \field{sortinit}{แ}
+      \field{sortinithash}{f56c92e71b1aeef2378d17411ef6c298}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{วารสารเศรษฐศาสตร์เกษตร}
+      \field{title}{ปัจจัยความเสี่ยงในภาคเกษตรไทย}
+      \field{year}{2562}
+      \field{pages}{45\bibrangedash 62}
+      \range{pages}{18}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
