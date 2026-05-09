@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{dss-thesis}
+\ProvidesClass{BSRU-Template}
 
 \LoadClass[12pt,a4paper]{report}
 
