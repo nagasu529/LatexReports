@@ -1,0 +1,26 @@
+This section reviews relevant literature in three areas: farmer heterogeneity in agricultural development\cite{feder1985,anderson2004}, machine learning applications in agriculture, and explainable artificial intelligence for decision support systems.
+
+\subsection{Farmer Heterogeneity and Training Effectiveness}
+
+A well-established finding in the agricultural economics literature is that farmer populations are inherently heterogeneous. Differences in human capital, resource endowments, and access to information significantly influence productivity outcomes and technology adoption behavior. As a result, uniform training programs often fail to deliver consistent benefits across participants.
+
+Previous studies have shown that farmers with higher baseline capabilities tend to benefit more from advanced training, while those with lower initial skills may struggle to absorb complex knowledge. This variation implies that training effectiveness is conditional on individual characteristics \cite{davis2012}, highlighting the need for differentiated intervention strategies.
+
+Despite this evidence, many agricultural extension systems continue to implement standardized programs due to operational simplicity and the lack of tools for systematic targeting. This gap between theoretical understanding and practical implementation motivates the use of data-driven approaches to support more adaptive training allocation.
+
+\subsection{Machine Learning in Agriculture}
+
+The use of machine learning in agriculture has expanded rapidly in recent years \cite{kamilaris2018,liakos2018}, with applications covering crop yield prediction, disease detection, and resource optimization. Ensemble models such as Random Forest and gradient boosting methods have been widely adopted due to their strong performance on structured agricultural datasets.
+
+These models are particularly effective in capturing non-linear relationships and interactions between variables, which are common in agricultural systems. Compared to traditional regression methods, machine learning approaches provide superior predictive capability, especially when dealing with high-dimensional and complex data.
+
+However, most existing applications focus on production and environmental aspects, with relatively limited attention given to human capital development and training systems. In addition, many studies emphasize predictive accuracy without addressing how model outputs can be translated into actionable decisions, limiting their practical applicability \cite{ryo2022}.
+
+\subsection{Explainable AI and Decision Support Systems}
+
+The increasing complexity of machine learning models has led to growing interest in explainable artificial intelligence (XAI) \cite{arrieta2020,lipton2018}. Among various techniques, SHapley Additive exPlanations (SHAP) has emerged as a widely used method for interpreting tree-based models due to its theoretical consistency and ability to provide both global and local explanations \cite{lundberg2017}.
+
+SHAP enables the decomposition of model predictions into feature-level contributions, allowing users to understand not only which variables are important, but also how they influence outcomes. This capability is particularly valuable in decision support contexts, where transparency and interpretability are essential for adoption.
+
+Despite these advances, the integration of explainable AI into operational decision-making systems remains limited. Many studies stop at interpretation, without providing a clear mechanism for converting model explanations into structured decision rules. This study addresses this gap by linking SHAP analysis with segmentation and decision rule extraction, enabling the development of a practical and deployable decision support system \cite{yang2025,zhang2026}.
+

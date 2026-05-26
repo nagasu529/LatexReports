@@ -1,0 +1,63 @@
+This section presents the empirical findings of the proposed AI-based decision support framework, including segmentation results, predictive model performance, and explainable analysis.
+
+\subsection{Farmer Segmentation}
+
+The K-Means clustering results identify three distinct farmer segments based on baseline characteristics. These segments reflect different levels of skill, resource access, and risk perception, providing a structured representation of heterogeneity within the dataset.
+as shown in Figure~\ref{fig:clusters}.
+The first segment represents farmers with relatively low baseline skills and limited resources, indicating a need for foundational training support. The second segment captures farmers with moderate capabilities and partial resource access, while the third segment includes high-skill farmers with stronger resource endowment and higher readiness for advanced interventions. These clusters form the basis for subsequent decision-making in the proposed framework.
+
+\subsection{Predictive Performance}
+
+The Random Forest model demonstrates satisfactory predictive performance in estimating skill improvement outcomes. The model achieves a coefficient of determination ($R^2$) of approximately $0.62$, indicating that a substantial proportion of variation in skill development can be explained by observable features.
+
+The XGBoost model yields comparable performance, supporting the robustness of the predictive results. Given the comparable accuracy and interpretability advantages, the Random Forest model is used as the primary model for subsequent explainability analysis.
+
+\subsection{Feature Importance}
+
+As shown in Figure~\ref{fig:importance}, the Random Forest feature importance analysis reveals that baseline skill levels, risk perception, and institutional support variables are the dominant predictors of skill improvement. In particular, variables related to production management skills, technological capability, and market-related risk consistently rank among the most influential features.
+
+These findings suggest that both human capital and contextual constraints jointly influence learning outcomes, highlighting the need for targeted intervention strategies rather than uniform training allocation.
+
+\subsection{SHAP Analysis}
+
+To provide deeper interpretability, SHAP analysis was applied to quantify the contribution of individual features to model predictions. The results reveal substantial heterogeneity in feature effects across observations.
+
+Baseline skill variables exhibit positive contributions for individuals with higher initial capability, while risk-related variables show disproportionately negative contributions beyond certain threshold levels. This indicates the presence of non-linear relationships that are not captured by conventional linear models.
+
+Furthermore, SHAP values vary across segments, suggesting that the drivers of skill improvement differ systematically between farmer groups as shown in Figure~\ref{fig:shap}. This supports the integration of segmentation and explanation within the decision support system.
+
+\subsection{Decision Rule Extraction}
+
+Building on segmentation and SHAP analysis, the framework translates model outputs into explicit decision rules. These rules link farmer characteristics to targeted training strategies using interpretable IF--THEN logic as shown in Figure~\ref{fig:rules}.
+
+For example, farmers with low baseline skills and high risk levels are mapped to intensive foundational training programs, while those with higher capabilities are directed toward advanced or market-oriented interventions. This rule-based representation enables domain practitioners to apply model insights without requiring direct interaction with machine learning systems.
+
+The combination of segmentation, prediction, and explainable analysis forms a coherent pipeline that supports practical decision-making in agricultural training allocation.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig2_clusters.png}
+\caption{Farmer segmentation results based on K-Means clustering. The clusters represent distinct groups characterized by different baseline skill levels, resource access, and risk profiles.}
+\label{fig:clusters}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig3_importance.png}
+\caption{Feature importance derived from the Random Forest model, highlighting baseline skill variables, risk perception, and institutional support as key predictors of skill improvement.}
+\label{fig:importance}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig4_shap.png}
+\caption{SHAP summary plot showing the distribution and magnitude of feature contributions. The results indicate non-linear and heterogeneous effects across observations.}
+\label{fig:shap}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig5_rules.png}
+\caption{Illustration of decision rules derived from the proposed framework, mapping farmer profiles to targeted training strategies using interpretable IF--THEN logic.}
+\label{fig:rules}
+\end{figure}
