@@ -1,43 +1,38 @@
-\documentclass[a4paper,fleqn]{cas-dc}
+\documentclass[final,twocolumn,authoryear]{elsarticle}
 
-\usepackage[numbers]{natbib}
-\usepackage{algorithm}
-\usepackage{algpseudocode}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{amsmath}
+
+\journal{TEST}
 
 \begin{document}
 
-\shorttitle{TEST}
-\shortauthors{TEST}
+\begin{frontmatter}
 
-\title{TEST TITLE}
+\title{Explainable AI for Segment-Aware Agricultural Skill Development:\\
+A SHAP-Based Decision Support Framework}
 
-\author{Test Author}
-\affiliation{organization={Test University}, country={Thailand}}
+\author[Test]{Kitti}
+\address[Test]{Test University, Thailand}
 
-\begin{abstract}
-This study proposes an explainable AI-based decision support system (DSS) for precision allocation of agricultural skill development programs. The framework integrates K-Means clustering for farmer segmentation, Random Forest modeling for predicting skill improvement, and SHAP analysis for interpretable feature attribution within a unified Segment–Attribute–Recommend pipeline. The proposed model achieved an R\textsuperscript{2} of approximately 0.62 in predicting skill outcomes. Cluster-level SHAP values were further transformed into interpretable IF–THEN rules, enabling transparent and actionable recommendations for extension practitioners. The results highlight substantial heterogeneity in farmer characteristics and reveal non-linear, segment-specific drivers of training effectiveness. The framework demonstrates how explainable machine learning can be operationalized into deployable decision logic to support data-driven agricultural extension systems.
-\end{abstract}
+\input{sections/abstract}
 
-\textbf{Keywords:} Explainable AI, SHAP, Decision Support System, Farmer Segmentation, Skill Development, Machine Learning
+\begin{keyword}
+Explainable AI \sep SHAP \sep Decision Support System \sep Farmer Segmentation \sep Skill Development \sep Machine Learning
+\end{keyword}
 
+\end{frontmatter}
 
-\maketitle
-
-\section{Introduction}
-\input{sections/intro}
-\section{Literature Review}
-\input{sections/literature}
-\section{Methodology}
-\input{sections/method}
-\section{Results}
+\input{sections/introduction}
+\input{sections/related_work}
+\input{sections/methodology}
 \input{sections/results}
-\section{Discussion}
 \input{sections/discussion}
-\section{Conclusion}
 \input{sections/conclusion}
 
-\bibliographystyle{cas-model2-names}
-\bibliography{references}
-\cite{test2024}
+\bibliographystyle{elsarticle-harv}
+\bibliography{refs}
 
 \end{document}

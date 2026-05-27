@@ -1,20 +1,33 @@
 MAIN=main
-EXPANDED=main_expanded.tex
+WRAPPER=fullpaper_wrapper.tex
+FULL=fullpaper.tex
+ZIP_NAME=fullpaper_package.zip
+
+all: pdf
 
 pdf:
 	xelatex $(MAIN).tex
 	bibtex $(MAIN)
 	xelatex $(MAIN).tex
 	xelatex $(MAIN).tex
-PACKAGE_DIR=claude_package
 
-package-for-claude:
-	rm -rf $(PACKAGE_DIR)
-	mkdir -p $(PACKAGE_DIR)/figures
-	cp $(EXPANDED) $(PACKAGE_DIR)/
-	cp -r figures/* $(PACKAGE_DIR)/figures/
-	@echo "Package for Claude is created: $(PACKAGE_DIR).tar.gz"
+fullpaper:
+	echo "\input{$(MAIN)}" > $(WRAPPER)
+	latexpand --expand-bbl $(WRAPPER) > $(FULL)
+	@echo "Created $(FULL)"
 
-expand:	
-	latexpand --empty-comments --expand-bbl $(MAIN).tex > $(EXPANDED)
-	@echo "merged $(EXPANDED) is done"	
+fullzip: fullpaper
+	rm -rf fullpaper_package $(ZIP_NAME)
+	mkdir -p fullpaper_package
+	mkdir -p fullpaper_package/figures
+
+	cp $(FULL) fullpaper_package/
+	cp -r figures/* fullpaper_package/figures/
+
+	cd fullpaper_package && zip -r ../$(ZIP_NAME) .
+	@echo "Created ZIP: $(ZIP_NAME)"
+
+clean:
+	rm -f *.aux *.bbl *.blg *.log *.out *.toc *.lof *.lot *.fls *.fdb_latexmk
+	rm -f $(FULL) $(WRAPPER)
+	rm -rf fullpaper_package $(ZIP_NAME)

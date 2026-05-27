@@ -1,0 +1,17 @@
+\section{Related Work}
+
+\subsection{Agricultural Decision Support Systems}
+
+Decision support systems (DSS) have long been used to support crop management, irrigation scheduling, pest control, and resource optimization. Recent surveys highlight the increasing integration of machine learning into agricultural DSS, enabling more adaptive and data-driven decision-making \citep{ferreira2020mlagri}. However, most existing systems focus on biophysical processes, with relatively limited attention to human-centered decision support such as training allocation or capability development. This gap underscores the need for DSS frameworks that incorporate behavioral and skill-related dimensions of agricultural development.
+
+\subsection{Farmer Segmentation and Heterogeneity}
+
+Farmer heterogeneity is a key determinant of technology adoption, learning readiness, and training effectiveness \citep{feder1985adoption}. Studies emphasize the importance of tailoring interventions to capability profiles, resource access, and behavioral attributes \citep{davis2012impact}. Segmentation approaches—ranging from cluster analysis to latent class models—have been used to characterize farmer typologies, yet their integration into operational decision-making remains limited. This study builds on this literature by linking segmentation directly to explainable model outputs and decision rules.
+
+\subsection{Explainable AI in Agriculture}
+
+Explainable AI (XAI) methods such as SHAP have been increasingly applied to agricultural prediction tasks, including crop yield modeling, soil mapping, and environmental forecasting \citep{ryo2022shap}. These studies demonstrate the value of interpretable feature attributions for understanding complex agro-ecological systems. However, applications of XAI to human-centered agricultural decision-making—particularly skill development and extension services—remain scarce. Existing work often focuses on interpretation alone, without providing mechanisms to translate explanations into actionable decision logic.
+
+\subsection{Interpretable Rule Extraction}
+
+Interpretable rule extraction methods, such as surrogate decision trees, provide transparent logic for explaining complex machine learning models \citep{molnar2022interpretable}. Surrogate models approximate the behavior of black-box models while maintaining interpretability, making them suitable for decision support contexts where transparency and accountability are essential. In this study, surrogate rule extraction is used to operationalize SHAP-derived insights into segment-specific IF–THEN rules that can guide training allocation.
