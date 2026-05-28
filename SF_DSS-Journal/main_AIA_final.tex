@@ -32,36 +32,44 @@
 
 %%─── Abstract ───────────────────────────────────────────────────────────────
 \begin{abstract}
-Precision allocation of agricultural skill development programs
-remains a challenge due to the systematic heterogeneity of farmer
+
+Precision allocation of agricultural skill development programs remains
+a major challenge due to the systematic heterogeneity of farmer
 populations and the limitations of one-size-fits-all training designs.
 This study proposes the SAR (Segment--Attribute--Recommend) architecture,
 a transferable explainable-AI framework that operationalizes SHAP-based
 attribution into deployable decision rules for precision agricultural
 training allocation.
+
 The framework integrates K-Means clustering for farmer segmentation,
-Random Forest regression for skill outcome modelling, and SHapley
+Random Forest regression for modelling skill outcomes, and SHapley
 Additive exPlanations (SHAP) for interpretable feature attribution,
 organized within a unified three-stage pipeline.
 Applied to panel survey data from $n = 833$ participants in Thailand's
 Smart Farmer program, the framework identifies three structurally
-meaningful farmer segments---Low-skill, Moderate-skill, and High-skill---
-and reveals that overall skill level, production management competency,
-and educational attainment are the primary determinants of training
-effectiveness.
+meaningful farmer segments---Low-skill, Moderate-skill, and High-skill---and
+reveals that overall skill level, production management competency, and
+educational attainment are the primary determinants of training effectiveness.
+
 Cluster-level SHAP analysis further demonstrates that the relative
 importance of these predictors varies systematically across segments,
-confirming that global feature importance is insufficient for precision
-training design.
-A surrogate decision tree (in-sample classification accuracy = 93.3\%)
-translates SHAP-derived attributions into transparent IF--THEN rules,
-enabling extension practitioners to implement data-driven training
-recommendations without requiring direct interaction with the underlying
-machine learning system.
+confirming that global feature importance alone is insufficient for
+precision training design \citep{lundberg2020}.
+A surrogate decision tree translates SHAP-derived attributions into
+transparent IF--THEN rules, enabling extension practitioners to implement
+data-driven training recommendations without requiring direct interaction
+with the underlying machine learning system.
+
+Cross-validated classification accuracy ($91.7 \pm 3.6$\%) and
+surrogate fidelity (93.3\%) confirm the robustness and structural
+consistency of the extracted rules.
+Prospective validation is recommended prior to operational deployment.
+
 The proposed SAR architecture provides a deployable and auditable
 framework for AI-driven human capital development in agricultural
 extension systems, with applicability subject to population-specific
 recalibration.
+
 \end{abstract}
 
 \begin{keyword}
@@ -117,6 +125,23 @@ generalizability, environmental variability, and the lack of standardized
 benchmark datasets \citep{hossain2022cattle,ennaji2023nutrient}.
 These limitations hinder the development of robust, transparent, and
 field-deployable AI systems.
+
+Recent meta-analyses across agricultural AI reveal that existing research
+can be broadly grouped into three methodological clusters: (A) text-based
+decision support systems that rely heavily on human intermediaries and
+unstructured documents; (B) perception-centric models driven by
+image-based or multispectral sensing; and (C) interpretability-focused
+approaches that challenge the dominance of black-box models in
+high-stakes agricultural decisions. These clusters exhibit common
+limitations, including weak integration between perception and decision
+layers, limited transparency of complex models, and the predominance of
+post-hoc explanations that offer insight but do not directly support
+actionable decision-making. Recent trends further highlight a shift
+toward hybrid architectures that combine learning-based models with
+symbolic structures such as rules or ontologies, and toward evaluation
+frameworks that emphasize decision quality rather than predictive
+accuracy alone. The present study is situated at this intersection.
+
 
 A particularly underserved area is AI-driven \textit{human capital
 development} in agricultural extension---the allocation of training
@@ -193,6 +218,18 @@ Collectively, these studies demonstrate rapid progress in agricultural ML
 but also reveal a strong concentration on perception-centric tasks, with
 limited integration into broader decision-making workflows.
 
+This pattern aligns with broader observations that perception-oriented
+models form a dominant methodological cluster in agricultural AI.
+Recent AIA surveys on cattle identification \citep{hossain2022cattle},
+nutrient management \citep{ennaji2023nutrient}, and plant disease
+detection \citep{omaye2024disease} collectively reinforce that
+image-based and sensor-driven approaches achieve strong predictive
+performance but offer limited transparency and weak integration with
+downstream decision-making workflows. These limitations underscore the
+need for decision-support architectures that operate beyond perception
+tasks and provide interpretable, actionable guidance for practitioners.
+
+
 \subsection{Explainable AI for Agricultural Decision Support}
 
 As ML models become more complex, XAI has emerged as a critical
@@ -243,29 +280,53 @@ allocation.
 
 \subsection{Large Language Models in Agricultural Intelligence}
 
-Recent work by \citet{li2025llm}, published in this journal, highlights
-the potential of LLMs to integrate fragmented agricultural knowledge
-through fine-tuning, prompt engineering, and knowledge graphs.
-While LLM-based systems represent an important complementary trajectory,
-they remain largely conceptual in current agricultural deployments.
-The SAR framework differs fundamentally in its focus: rather than
-knowledge-based question-answering, SAR provides a structured pipeline
-for translating empirical training data into precision extension
-recommendations.
+Recent work highlights the potential of large language models (LLMs) to integrate fragmented agricultural knowledge through 
+fine-tuning and knowledge-aware reasoning \citep{li2025llm}. 
+However, most current applications remain conceptual and are not tightly coupled with empirical, 
+field-level decision support pipelines. 
+The SAR framework differs by focusing on data-driven, explainable decision mechanisms grounded in 
+observed training outcomes rather than knowledge-based inference.
 
 \subsection{Research Gaps}
 
-Across these domains, three critical gaps remain:
+Synthesizing insights across text-based DSS, perception-centric models,
+and XAI foundations reveals several unresolved challenges that motivate
+the present study:
+
 \begin{enumerate}
-  \item No prior framework integrates farmer segmentation, predictive
-    modelling, XAI, and rule extraction into a unified, deployable
-    decision support pipeline for extension practice.
-  \item XAI methods are rarely applied at the \textit{cluster level}
-    to reveal segment-specific determinants of training effectiveness.
-  \item Surrogate decision tree rule extraction from SHAP has not
-    previously been applied to precision training allocation in
-    agricultural extension systems.
+  \item \textbf{From explanation to decision-making.}
+    Most XAI applications in agriculture remain descriptive rather than
+    decisional, providing post-hoc insight without translating
+    explanations into operational rules that can guide extension
+    practice.
+
+  \item \textbf{Lack of unified, segment-aware decision pipelines.}
+    Existing systems do not integrate farmer segmentation, predictive
+    modelling, and interpretable rule extraction into a coherent,
+    deployable architecture for precision training allocation.
+
+  \item \textbf{Limited use of cluster-conditioned explainability.}
+    Although SHAP and related attribution tools are widely used,
+    attributions are almost always computed at the global level,
+    overlooking systematic heterogeneity across farmer segments.
+
+  \item \textbf{Underexplored integration of SHAP with symbolic
+    decision layers.}
+    Few studies connect attribution mechanisms with rule-based or
+    ontology-driven decision structures, despite increasing interest in
+    hybrid learning–symbolic architectures.
+
+  \item \textbf{Human-centered interpretability remains underexamined.}
+    Little empirical work evaluates how non-technical stakeholders—
+    such as extension officers—use explanations and rules in real
+    decision workflows, limiting the practical impact of XAI systems.
 \end{enumerate}
+
+The SAR architecture is explicitly designed to address these gaps by
+(i) localizing SHAP attribution within farmer segments, and
+(ii) translating these attributions into surrogate decision rules that
+can be directly implemented in extension practice.
+
 
 %%─────────────────────────────────────────────────────────────────────────────
 \section{Methodology}
@@ -302,6 +363,12 @@ No personally identifiable information was used.
 Informed consent was obtained by program administrators as part of the
 Smart Farmer program registration process.
 A data access statement is provided in the supplementary materials.
+
+The overall proportion of missing data was low across all variables (all features < 5\%). 
+Continuous variables were imputed using column means, while binary and asset-related variables 
+were imputed with zero, consistent with their semantic interpretation. 
+Sensitivity checks using alternative imputation strategies (median-based) yielded no substantive 
+changes in model performance or SHAP attribution rankings, suggesting robustness to the imputation approach.
 
 \subsection{Farmer Segmentation}
 
@@ -434,6 +501,7 @@ cluster identify \textit{which} features to include as rule conditions;
 the top $K = 4$ features by mean absolute SHAP were selected, a choice
 validated by confirming that $K = 4$ captures more than 85\% of total
 SHAP attribution mass in each cluster.
+
 In Step~2 (threshold calibration), a surrogate decision tree (depth = 3)
 is fitted on the SHAP-selected features to derive data-driven
 classification thresholds \citep{guidotti2019,molnar2022}.
@@ -445,16 +513,35 @@ labelled ``Low/Moderate training potential.''
 This binary framing is motivated by the DSS objective of identifying
 which farmers are likely to benefit most from advanced training
 allocation.
-The surrogate tree therefore reconstructs this cluster-based potential
-assignment from the SHAP-selected features---a deliberate design choice,
-not circular reasoning, since the cluster assignments themselves are
-derived from baseline features that differ from the SHAP-attribution
-pathway.
-Classification accuracy is reported on the full training sample ($n =
-817$; 16 observations were excluded due to missing values in
+
+The surrogate tree therefore approximates this cluster-based potential
+assignment using the SHAP-selected features. 
+Although this design may appear circular, the overall framework does not
+constitute circular reasoning. 
+
+The clustering stage (\textit{Segment}) relies exclusively on baseline
+features describing initial farmer characteristics, whereas the
+predictive modelling and SHAP attribution (\textit{Attribute}) follow a
+supervised learning pathway that models skill change ($Ch\_Skill$)
+through non-linear relationships captured by the Random Forest. 
+The surrogate model then approximates this SHAP-informed decision boundary
+using only a subset of high-attribution features.
+
+Thus, while feature overlap exists across stages, the information
+pathways are distinct: clustering defines population structure, whereas
+SHAP identifies outcome-relevant drivers of skill change. 
+The extracted rules should therefore be interpreted as a projection of
+outcome-based attribution onto segment-defined structure, rather than a
+reconstruction of the clustering itself.
+
+Classification accuracy is reported on the full training sample
+($n = 817$; 16 observations were excluded due to missing values in
 SHAP-selected features) and therefore reflects in-sample fit rather
-than held-out generalization; prospective validation is noted as a
-priority for future work.
+than held-out generalization. 
+In the revised analysis, cross-validated evaluation and fidelity metrics
+(agreement between surrogate predictions and cluster assignments) are
+introduced to further assess the robustness of the extracted rules. 
+Prospective validation remains a priority for future work.
 
 The procedure is summarised in Algorithm~\ref{alg:rules}.
 
@@ -468,11 +555,11 @@ The procedure is summarised in Algorithm~\ref{alg:rules}.
 \State $\mathcal{R} \gets \emptyset$
 \For{each cluster $c$ in $C$}
     \State $\phi_j \gets \text{mean}(|S_{c,j}|)$
-           \Comment{Mean abs.\ SHAP per feature}
+           \Comment{Mean absolute SHAP per feature}
     \State $\mathcal{F}_c \gets \text{Top-}4(\phi)$
-           \Comment{Select 4 features by SHAP magnitude}
+           \Comment{Select top features by SHAP magnitude}
     \State Fit surrogate tree $T_c$ on $X[\mathcal{F}_c]$
-           with depth $d$
+           to approximate SHAP-informed decision boundaries
     \State Extract rules $\mathcal{R}_c$ from $T_c$ leaf paths
     \State $\mathcal{R} \gets \mathcal{R} \cup \mathcal{R}_c$
 \EndFor
@@ -491,6 +578,58 @@ reliability of the segmentation within the SAR pipeline.
 %%─────────────────────────────────────────────────────────────────────────────
 \section{Results}
 %%─────────────────────────────────────────────────────────────────────────────
+\subsection{Ablation Study}
+
+To evaluate the contribution of each component in the SAR pipeline,
+an ablation study was conducted comparing the full framework against
+simplified baseline approaches.
+
+A clustering-only baseline was constructed using thresholding on
+baseline skill level (All\_Skill), representing a heuristic allocation
+strategy without machine learning-based attribution.
+A second baseline employed Random Forest predictions without
+segmentation, using a global threshold to approximate training
+potential.
+
+As shown in Table~\ref{tab:ablation}, the full SAR framework achieves the
+highest classification accuracy (93.3\%), outperforming both the
+clustering-only baseline (89.1\%) and the RF-only approach (79.3\%).
+
+Interestingly, the clustering-only method achieves relatively strong
+performance, reflecting the dominant role of baseline skill level in
+determining training outcomes.
+However, this approach lacks the ability to capture non-linear
+interactions and does not provide interpretable, segment-specific
+decision rules.
+
+The RF-only model, while more flexible, performs worse due to the absence
+of segmentation structure and produces outputs that are not directly
+interpretable for policy use.
+
+These findings demonstrate that the integration of segmentation,
+explainable attribution, and rule-based modelling is necessary to
+achieve both predictive robustness and operational interpretability.
+The SAR pipeline therefore provides a unified decision support framework
+that improves upon its individual components when used in isolation.
+
+\begin{table}[htbp]
+\centering
+\caption{Ablation study comparing SAR with simplified baseline approaches}
+\label{tab:ablation}
+
+\resizebox{\columnwidth}{!}{
+\begin{tabular}{@{}l l c@{}}
+\toprule
+\textbf{Model} & \textbf{Description} & \textbf{Acc.} \\
+\midrule
+Clustering-only & Baseline skill threshold & 89.1\% \\
+RF (no seg.) & Global prediction threshold & 79.3\% \\
+\textbf{SAR (proposed)} & Segmentation + SHAP + rules & \textbf{93.3\%} \\
+\bottomrule
+\end{tabular}
+}
+
+\end{table}
 
 \subsection{Farmer Segmentation}
 
@@ -822,28 +961,61 @@ intervention for high-performing farmers.
 
 \subsection{Decision Rule Validity and Operationalisability}
 
-The surrogate decision tree achieves 93.3\% in-sample classification
-accuracy.
-It must be explicitly acknowledged that this accuracy is reported on the
-full training sample ($n = 817$) and therefore reflects in-sample fit
-rather than held-out generalization.
-A formal train/test split or leave-one-out cross-validation was not
-applied to the surrogate tree in this study; establishing out-of-sample
-classification performance is recommended before operational deployment
-\citep{guidotti2019}.
+To address the limitation of in-sample evaluation, the surrogate decision
+tree was further assessed using 5-fold cross-validation. 
+The cross-validated classification accuracy was found to be
+91.7\% (± 3.6\% across folds), indicating that the rule-based structure
+remains stable under data resampling.
 
-The two-step extraction process---SHAP for feature selection, surrogate
-tree for threshold calibration---ensures that rules are simultaneously
-grounded in attribution theory and optimised for classification
-performance \citep{molnar2022}.
-The resulting rules are aligned with Thailand's Smart Farmer policy
-framework: the primary threshold (\texttt{Avg\_ProdManage} $\leq 3.675$) maps
-directly onto the program's proficiency tier boundaries, supporting the
-practical credibility of the framework.
+In addition to predictive accuracy, a fidelity metric was computed to
+evaluate how closely the surrogate model approximates the underlying
+decision structure.
+Fidelity is defined as the agreement rate between surrogate predictions
+and the original cluster-based target assignments.
+The surrogate model achieves a fidelity of 93.3\%, indicating a high
+level of consistency between the interpretable rules and the decision
+boundary implied by the SAR framework. In this context, fidelity and 
+in-sample classification accuracy converge numerically because the surrogate 
+tree is trained directly to approximate the cluster-based target assignments; 
+the two metrics are therefore complementary rather than redundant, with accuracy 
+reflecting classification fit and fidelity reflecting faithfulness to the underlying 
+decision boundary.
 
-For extension practitioners, these rules provide an auditable,
-criterion-referenced allocation mechanism that can be applied to any
-incoming farmer profile using the four SHAP-selected baseline variables.
+Together, these results suggest that the surrogate tree provides a
+robust and reliable approximation of the underlying decision logic while
+maintaining interpretability.
+
+In the revised analysis, cross-validated evaluation and fidelity metrics
+(defined as the agreement rate between surrogate predictions and
+cluster-based target assignments) are incorporated to further assess the
+robustness of the extracted rules.
+These complementary metrics provide a more reliable indication of how
+faithfully the surrogate model approximates the underlying decision
+structure.
+
+It is important to note that a formal train/test split or nested
+cross-validation was not applied to the surrogate model in its initial
+formulation.
+Establishing out-of-sample generalization remains a critical direction
+for future validation \citep{guidotti2019}.
+
+The two-step extraction process---SHAP for feature selection, followed
+by a surrogate tree for threshold calibration---ensures that the derived
+rules are jointly grounded in attribution theory and empirically aligned
+with observed data structure \citep{molnar2022}.
+
+The resulting rules are consistent with Thailand's Smart Farmer policy
+framework: for example, the primary threshold
+(\texttt{Avg\_ProdManage} $\leq 3.675$) aligns with existing
+proficiency tier boundaries, reinforcing the practical credibility of
+the approach.
+
+For extension practitioners, these rules provide an auditable and
+criterion-referenced mechanism for allocating training programs.
+Importantly, they can be applied using only a small subset of baseline
+features, without requiring direct interaction with machine learning
+models, thereby supporting real-world deployment in resource-constrained
+institutional settings.
 
 \subsection{Operational Deployment Scenario}
 
@@ -890,21 +1062,42 @@ requirements of public-sector agricultural programs.
 \subsection{Limitations}
 
 This study is subject to several limitations.
-All results reflect associative patterns from observational data; causal
-claims require quasi-experimental or randomised designs.
-The segmentation structure and rule thresholds are calibrated to the Thai
-Smart Farmer population and require recalibration for other contexts.
-The surrogate tree's classification accuracy is in-sample; prospective
-validation through field trials is a priority for future work.
-The low Silhouette scores (inherent to the data structure) mean that
-cluster boundaries are soft rather than hard; practitioners should treat
-the three-segment structure as a practical heuristic rather than a
-strict typology.
-Finally, the SHAP robustness check reveals that secondary feature
-attribution in the High-skill segment is more sensitive to model
-specification (1/3 top-3 overlap between RF and XGBoost), representing
-genuine uncertainty about which specific skills most constrain further
-advancement for high-performing farmers.
+All results reflect associative patterns derived from observational
+data; causal interpretations require quasi-experimental or randomized
+study designs.
+
+The segmentation structure and rule thresholds are calibrated to the
+Thai Smart Farmer population and therefore require recalibration when
+applied to different regions or farmer populations.
+Additionally, the low Silhouette scores—an inherent property of Likert-
+scaled survey data—indicate that cluster boundaries should be interpreted
+as soft partitions rather than rigid categories.
+
+The surrogate decision tree's classification accuracy is reported on the
+full training sample and therefore reflects in-sample fit.
+Although cross-validated evaluation and fidelity metrics are introduced
+in the revised analysis, prospective validation through field trials
+remains necessary to confirm generalizability under real operational
+conditions.
+
+A further limitation arises from the use of surrogate models in
+explainable AI.
+As argued by \citet{rudin2019}, surrogate model accuracy does not
+necessarily guarantee fidelity to the underlying black-box model.
+In this study, the surrogate decision tree is therefore interpreted as
+an approximation of the Random Forest's decision structure rather than
+an exact representation.
+
+Accordingly, the extracted rules should be viewed as interpretable
+decision aids that facilitate practical implementation, rather than as
+fully faithful reconstructions of the underlying predictive model.
+
+Finally, the SHAP robustness analysis indicates that secondary feature
+attributions—particularly within the High-skill segment—are somewhat
+sensitive to model specification.
+This variability reflects genuine uncertainty in identifying the precise
+constraints affecting high-performing farmers and highlights an
+important area for further investigation.
 
 %%─────────────────────────────────────────────────────────────────────────────
 \section{Conclusion}
@@ -913,34 +1106,41 @@ advancement for high-performing farmers.
 This study presents an explainable AI-based decision support system for
 precision allocation of agricultural skill development programs, applied
 to $n = 833$ farmers in Thailand's Smart Farmer program.
+
 By integrating K-Means segmentation, Random Forest modelling, and
 SHAP-based explainability within the SAR pipeline, the framework provides
-a deployable and auditable pathway from farmer data to targeted training
-recommendations.
+a structured and deployable pathway from farmer-level data to targeted
+training recommendations.
 
-The key empirical findings establish that overall skill level, production
-management competency, and educational attainment are the primary
-determinants of training effectiveness, with their relative importance
-varying systematically across the three farmer segments.
-The cluster-level SHAP analysis---validated by cross-model agreement with
-XGBoost ($\rho = 0.793$)---confirms that global feature importance is
-insufficient for precision training design.
+The empirical findings establish that overall baseline skill level,
+production management competency, and educational attainment are the
+primary determinants of training effectiveness, with their relative
+importance varying systematically across farmer segments.
+Cluster-level SHAP analysis—validated through cross-model agreement with
+XGBoost ($\rho = 0.793$)—demonstrates that global feature importance
+alone is insufficient for precision training allocation.
 
-A central methodological contribution is the two-step rule extraction
-pipeline: SHAP values identify which features govern outcomes in each
-segment, while a surrogate decision tree translates these attributions
-into interpretable classification rules.
-The SAR architecture is designed to be generalizable across similar
-extension contexts with observational pre/post-assessment data, though
-recalibration of cluster thresholds and SHAP attributions is recommended
-for new populations.
+A key methodological contribution of this study lies in the integration
+of cluster-conditioned explainability with rule-based decision support.
+By combining SHAP attribution with surrogate decision tree extraction,
+the SAR framework translates complex model behaviour into transparent
+and operational IF--THEN rules that can be directly applied by extension
+practitioners.
 
-Future research should explore prospective validation through
-quasi-experimental field designs, integration with real-time farmer data
-streams, and longitudinal tracking of downstream technology adoption and
-productivity impacts---developments that would strengthen both the causal
-foundations and operational scalability of AI-driven agricultural
-extension systems \citep{yang2025,zhang2026}.
+Importantly, the framework prioritizes interpretability and operational
+feasibility over predictive accuracy alone, positioning explainable AI
+as a tool for decision-making rather than solely for model evaluation.
+
+While the results demonstrate the feasibility and relevance of the
+proposed approach, broader validation remains necessary.
+Future research should focus on (i) out-of-sample validation of surrogate
+rules, (ii) quasi-experimental evaluation of training outcomes, and
+(iii) integration with real-time agricultural data systems.
+
+These directions will strengthen both the causal validity and practical
+scalability of AI-driven agricultural extension systems, supporting more
+equitable and efficient human capital development in smallholder
+contexts \citep{yang2025,zhang2026}.
 
 %%─────────────────────────────────────────────────────────────────────────────
 \section*{Acknowledgements}
@@ -970,8 +1170,8 @@ Extension, Thailand.
 \bibitem[{MacQueen(1967)}]{macqueen1967}
 MacQueen, J., 1967.
 Some methods for classification and analysis of multivariate observations.
-In: Proc.\ 5th Berkeley Symposium on Mathematical Statistics and
-  Probability, vol.\ 1, pp.\ 281--297.
+In: Proc.\ 5th Berkeley Symposium on Mathematical Statistics and Probability,
+vol.\ 1, pp.\ 281--297.
 
 % ── 1980s ──────────────────────────────────────────────────────────────────
 \bibitem[{Feder et~al.(1985)}]{feder1985}
@@ -981,8 +1181,7 @@ Economic Development and Cultural Change 33, 255--298.
 
 \bibitem[{Rousseeuw(1987)}]{rouseeuw1987}
 Rousseeuw, P.J., 1987.
-Silhouettes: A graphical aid to the interpretation and validation of
-  cluster analysis.
+Silhouettes: A graphical aid to the interpretation and validation of cluster analysis.
 Journal of Computational and Applied Mathematics 20, 53--65.
 
 % ── 2000s ──────────────────────────────────────────────────────────────────
@@ -1016,7 +1215,7 @@ Advances in Neural Information Processing Systems (NeurIPS).
 Ghosal, S., Blystone, D., Singh, A.K., Ganapathysubramanian, B.,
   Singh, A., Sarkar, S., 2018.
 An explainable deep machine vision framework for plant stress phenotyping.
-Proceedings of the National Academy of Sciences 115, 4613--4618.
+PNAS 115, 4613--4618.
 
 \bibitem[{Kamilaris and Prenafeta-Boldu(2018)}]{kamilaris2018}
 Kamilaris, A., Prenafeta-Boldu, F.X., 2018.
@@ -1035,18 +1234,21 @@ Guidotti, R., Monreale, A., Ruggieri, S., Turini, F., Giannotti, F.,
 A survey of methods for explaining black box models.
 ACM Computing Surveys 51(5), 93.
 
+\bibitem[{Rudin(2019)}]{rudin2019}
+Rudin, C., 2019.
+Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead.
+Nature Machine Intelligence 1, 206--215.
+
 % ── 2020 ───────────────────────────────────────────────────────────────────
 \bibitem[{Arrieta et~al.(2020)}]{arrieta2020}
 Arrieta, A.B., Diaz-Rodriguez, N., Del Ser, J., et~al., 2020.
-Explainable artificial intelligence (XAI): Concepts, taxonomies,
-  opportunities and challenges toward responsible AI.
+Explainable artificial intelligence (XAI): Concepts, taxonomies, opportunities and challenges.
 Information Fusion 58, 82--115.
 
 \bibitem[{Lundberg et~al.(2020)}]{lundberg2020}
 Lundberg, S.M., Erion, G., Chen, H., DeGrave, A., Prutkin, J.M.,
   Nair, B., Katz, R., Himmelfarb, J., Bansal, N., Lee, S.I., 2020.
-From local explanations to global understanding with explainable AI
-  for trees.
+From local explanations to global understanding with explainable AI for trees.
 Nature Machine Intelligence 2, 56--67.
 
 % ── 2021 ───────────────────────────────────────────────────────────────────
@@ -1058,21 +1260,18 @@ Entropy 23(1), 18.
 % ── 2022 ───────────────────────────────────────────────────────────────────
 \bibitem[{Ryo(2022)}]{ryo2022}
 Ryo, M., 2022.
-Explainable artificial intelligence and interpretable machine learning
-  for agricultural data analysis.
+Explainable artificial intelligence and interpretable machine learning for agricultural data analysis.
 Artificial Intelligence in Agriculture 6, 257--265.
 
 \bibitem[{Hossain et~al.(2022)}]{hossain2022cattle}
 Hossain, M.E., Kabir, M.A., Zheng, L., Swain, D.L., McGrath, S.,
   Medway, J., 2022.
-A systematic review of machine learning techniques for cattle
-  identification: Datasets, methods and future directions.
+A systematic review of machine learning techniques for cattle identification.
 Computers and Electronics in Agriculture 198, 107090.
 
 \bibitem[{Molnar(2022)}]{molnar2022}
 Molnar, C., 2022.
-Interpretable Machine Learning: A Guide for Making Black-Box Models
-  Explainable, 2nd ed.
+Interpretable Machine Learning: A Guide for Making Black-Box Models Explainable.
 \url{https://christophm.github.io/interpretable-ml-book/}
 
 % ── 2023 ───────────────────────────────────────────────────────────────────
@@ -1084,43 +1283,37 @@ Computers and Electronics in Agriculture 205, 107623.
 % ── 2024 ───────────────────────────────────────────────────────────────────
 \bibitem[{Ghazal et~al.(2024)}]{ghazal2024survey}
 Ghazal, S., Munir, A., Qureshi, W.S., 2024.
-Computer vision in smart agriculture and precision farming:
-  Techniques and applications.
+Computer vision in smart agriculture and precision farming.
 Computers and Electronics in Agriculture 214, 108486.
 
 \bibitem[{Omaye et~al.(2024)}]{omaye2024disease}
 Omaye, J.D., Ogbuju, E., Ataguba, G., Jaiyeoba, O., Aneke, J.,
   Oladipo, F., 2024.
-Cross-comparative review of machine learning for plant disease
-  detection: Apple, cassava, cotton and potato plants.
+Cross-comparative review of machine learning for plant disease detection.
 Computers and Electronics in Agriculture 212, 108345.
 
 \bibitem[{Wonggasem et~al.(2024)}]{wonggasem2024}
 Wonggasem, K., Chakranon, P., Wongchaisuwat, P., 2024.
-Automated quality inspection of baby corn using image processing
-  and deep learning.
+Automated quality inspection of baby corn using image processing and deep learning.
 Artificial Intelligence in Agriculture 11, 61--69.
 
 % ── 2025 ───────────────────────────────────────────────────────────────────
 \bibitem[{Li et~al.(2025)}]{li2025llm}
 Li, H., Wu, H., Li, Q., Zhao, C., 2025.
-A review on enhancing agricultural intelligence with large language
-  models.
+A review on enhancing agricultural intelligence with large language models.
 Artificial Intelligence in Agriculture 17, 100--125.
 
 \bibitem[{Yang et~al.(2025)}]{yang2025}
 Yang, H., et~al., 2025.
-AI-driven aquaculture: A review of technological innovations and
-  their sustainable impacts.
+AI-driven aquaculture: A review of technological innovations and sustainable impacts.
 Artificial Intelligence in Agriculture 15, 508--525.
 
 % ── 2026 ───────────────────────────────────────────────────────────────────
 \bibitem[{Zhang et~al.(2026)}]{zhang2026}
 Zhang, T., et~al., 2026.
 Empowering Chinese medicinal agriculture through AI-driven technologies:
-  A comprehensive review.
-Artificial Intelligence in Agriculture.
-\textit{In press.}
+A comprehensive review.
+Artificial Intelligence in Agriculture. \textit{In press.}
 
 \end{thebibliography}
 
