@@ -1,0 +1,43 @@
+\section{Methodology}
+
+\subsection{Data}
+The dataset comprises $n=\textbf{[N]}$ farmer observations collected between [YEAR--YEAR] from participants and non-participants in Thailand’s Smart Farmer program. Each observation includes demographic characteristics, resource access, risk perception, and domain-level skill assessments measured before and after training. The outcome variable, \textit{Ch\_Skill}, is defined as the difference between post-training and pre-training composite skill scores.
+
+\subsection{Feature Engineering}
+Baseline skill indicators were aggregated into domain-level variables (e.g., marketing, production management). Continuous variables were standardized to zero mean and unit variance, while binary indicators retained their original form. Missing values were imputed using mean imputation for continuous variables and zero imputation for binary and asset-related variables to maintain consistency across models.
+
+\subsection{Model Training and Evaluation}
+A Random Forest regressor was trained to predict skill improvement. Model performance was evaluated using 5-fold cross-validation with stratified sampling to prevent leakage across pre- and post-training observations. Cluster assignments were \textit{excluded} from model inputs to avoid circularity between segmentation and prediction. Performance metrics include the coefficient of determination ($R^2$), root mean squared error (RMSE), and mean absolute error (MAE).
+
+\subsection{SHAP Computation}
+SHAP values quantify the marginal contribution of each feature to model predictions \citep{adadi2018xai}. Global importance was assessed using mean absolute SHAP values, while local effects were visualized using beeswarm plots. SHAP values were also computed separately for each farmer segment to identify segment-specific drivers of skill improvement.
+
+\subsection{Rule Extraction}
+To translate model explanations into actionable logic, a surrogate decision tree (depth = 3) was fitted using SHAP-selected features \citep{molnar2022interpretable}. The surrogate model approximates the Random Forest’s decision structure while providing interpretable IF–THEN rules. These rules form the basis of the Segment–Attribute–Recommend decision support framework.
+
+\subsection{Clustering Analysis}
+K-Means clustering ($k=3$) was applied to standardized baseline features to identify heterogeneous farmer segments. The choice of $k=3$ was supported by the Elbow method and Silhouette analysis. Euclidean distance was used as the similarity metric, consistent with standard K-Means assumptions of convex, spherical clusters.
+
+\subsection{Assumptions}
+The methodological framework relies on the following assumptions:  
+(1) K-Means assumes clusters are approximately spherical and separable in standardized feature space;  
+(2) Random Forest assumes training and test data are drawn from the same distribution;  
+(3) SHAP values provide additive, locally accurate feature attributions;  
+(4) The surrogate decision tree provides a faithful approximation of the Random Forest’s decision boundaries for interpretability purposes.
+
+\begin{table}[H]
+\centering
+\caption{Mapping of feature abbreviations to full variable names.}
+\begin{tabular}{ll}
+\toprule
+Abbreviation & Full Variable Name \\
+\midrule
+Avg Mkting & Average Marketing Skill \\
+Avg ProdManage & Average Production Management Skill \\
+RiskPerception & Risk Perception Score \\
+Edu & Education Level \\
+Irriga & Irrigation Access Indicator \\
+All\_Skill & Composite Baseline Skill Score \\
+\bottomrule
+\end{tabular}
+\end{table}
