@@ -634,7 +634,7 @@ decision rules suitable for use by extension practitioners.
 
 \begin{figure*}[htbp]
 \centering
-\includegraphics[width=\textwidth]{figures/fig1_framework.png}
+\includegraphics[width=\textwidth]{fig1_framework.png}
 \caption{The SAR decision support framework integrating K-Means
 segmentation, Random Forest modelling, and SHAP-based explanation
 into a unified pipeline for precision agricultural skill development.}
@@ -643,7 +643,7 @@ into a unified pipeline for precision agricultural skill development.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{figures/fig_elbow_silhouette.png}
+\includegraphics[width=\columnwidth]{fig2_elbow_silhouette.png}
 \caption{Cluster validity analysis using four complementary indices
 for $k = 2$--$8$: within-cluster inertia (Elbow), Silhouette,
 Calinski--Harabasz (CH), and Davies--Bouldin (DB).
@@ -653,7 +653,7 @@ At $k = 3$: Silhouette $= 0.185$, CH $= 202.67$, DB $= 1.835$.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{figures/fig2_clusters_new.png}
+\includegraphics[width=\columnwidth]{fig3_clusters_new.png}
 \caption{Farmer segmentation via K-Means ($k = 3$), visualised in
 PCA space. Three segments reflect systematic differences in baseline
 capabilities and resource access.}
@@ -662,7 +662,7 @@ capabilities and resource access.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{figures/fig_k_sensitivity.png}
+\includegraphics[width=\columnwidth]{fig4_k_sensitivity.png}
 \caption{K-sensitivity analysis: cluster validity indices (Silhouette,
 Calinski--Harabasz, Davies--Bouldin) for $k = 2$--$5$. The dominant
 features and qualitative segment distinctions remain stable across all
@@ -672,7 +672,7 @@ values of $k$, supporting the robustness of the three-segment solution.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{figures/fig_gmm_robustness.png}
+\includegraphics[width=\columnwidth]{fig5_gmm_robustness.png}
 \caption{Clustering robustness: K-Means versus Gaussian Mixture Model
 (GMM) with $k = 3$, visualised in PCA space.
 Adjusted Rand Index (ARI) $= 0.28$.
@@ -683,7 +683,7 @@ than GMM in this Likert-scale dataset.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{figures/fig3_importance_new.png}
+\includegraphics[width=\columnwidth]{fig6_importance_new.png}
 \caption{Global SHAP-based feature importance (mean $|\text{SHAP}|$)
 across all observations ($n = 833$).
 \texttt{All\_Skill} is the dominant predictor.}
@@ -692,7 +692,7 @@ across all observations ($n = 833$).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{figures/fig_shap_robustness.png}
+\includegraphics[width=\columnwidth]{fig7_shap_robustness.png}
 \caption{SHAP attribution robustness: Random Forest versus XGBoost
 importance rankings. Spearman $\rho = 0.793$, $p < 0.001$.}
 \label{fig:robustness}
@@ -700,7 +700,7 @@ importance rankings. Spearman $\rho = 0.793$, $p < 0.001$.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{figures/fig4_shap_new.png}
+\includegraphics[width=\columnwidth]{fig8_shap_new.png}
 \caption{SHAP beeswarm plot showing the distribution and direction
 of feature contributions across all observations ($n = 833$).
 Colour indicates raw feature value (red $=$ high, blue $=$ low).}
@@ -709,7 +709,7 @@ Colour indicates raw feature value (red $=$ high, blue $=$ low).}
 
 \begin{figure*}[htbp]
 \centering
-\includegraphics[width=\textwidth]{figures/fig4b_cluster_shap_new.png}
+\includegraphics[width=\textwidth]{fig9_cluster_shap_new.png}
 \caption{Cluster-stratified SHAP beeswarm plots for the Low-skill
 (left, $n = 271$), Moderate-skill (centre, $n = 228$), and High-skill
 (right, $n = 334$) segments. Secondary feature importance varies
@@ -719,7 +719,7 @@ systematically across segments.}
 
 \begin{figure*}[htbp]
 \centering
-\includegraphics[width=\textwidth]{figures/fig5_rules_new.png}
+\includegraphics[width=\textwidth]{fig10_rules_new.png}
 \caption{Surrogate decision tree (depth $= 3$, in-sample accuracy
 $= 93.3\%$, $n = 817$) fitted on the top-4 SHAP-selected features.
 Held-out validation (80/20 split) yields 91.4\% accuracy.
