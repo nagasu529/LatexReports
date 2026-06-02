@@ -1,0 +1,82 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{\textbf{Counterfactual Explanations for Personalized Training Recommendations in Smart Agriculture}}
+
+\author{
+    \textbf{Kitti Chiewchan} \\
+    Bansomdejchaopraya Rajabhat University, Bangkok, Thailand \\
+    \texttt{author@bsru.ac.th}
+}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The integration of Machine Learning in agricultural extension services has advanced the categorization of farmers based on skill profiles. However, extracting actionable, personalized training paths from black-box models remains challenging. This paper introduces a novel framework utilizing Counterfactual Explanations (CFs) optimized via a Genetic Algorithm to generate personalized training recommendations. By enforcing strict monotonic constraints ($\Delta X \ge 0$), we ensure that the recommended skill modifications are practically achievable. Experimental results on a panel dataset of 833 farmers demonstrate that our framework successfully generates highly sparse (average of 2.76 features changed) and proximate recommendations, successfully translating mathematical feature perturbations into targeted agricultural extension curricula.
+\end{abstract}
+
+\vspace{0.5cm}
+\noindent\textbf{Keywords:} Counterfactual Explanations, eXplainable AI (XAI), Smart Agriculture, Genetic Algorithm, Personalized Recommendations
+
+\section{Introduction}\label{sec1}
+The integration of Machine Learning (ML) in agricultural extension services has significantly advanced the ability to profile and categorize farmers based on their skill sets and risk profiles. Recent studies have successfully employed predictive models and global explainable AI (XAI) techniques, such as SHAP, to extract broad, rule-based training policies. However, a critical gap remains in the operationalization of these insights: global explanations fail to answer the personalized ``what-if'' questions required by individual farmers. 
+
+To bridge the gap between predictive classification and actionable intervention, this paper introduces a novel framework utilizing Counterfactual Explanations (CFs) for personalized agricultural training recommendations. The primary contributions of this paper are threefold:
+\begin{itemize}
+    \item \textbf{Methodological Novelty in Agriculture:} We pioneer the application of Counterfactual Explanations in agricultural extension.
+    \item \textbf{Monotonic Constrained Optimization:} We propose a Genetic Algorithm-based CF generation pipeline that enforces real-world monotonic constraints ($\Delta X \ge 0$).
+    \item \textbf{Direct Actionability Mapping:} We introduce an evaluation framework that translates mathematical feature perturbations into concrete training programs.
+\end{itemize}
+
+\section{Related Work}\label{sec2}
+
+\subsection{Machine Learning and Explainability in Agriculture}
+Machine learning has been widely adopted in agricultural analytics, ranging from yield prediction to farmer segmentation. Traditionally, these predictive models operate as ``black boxes,'' prioritizing accuracy over interpretability. Recently, there has been a significant shift towards eXplainable AI (XAI) in agriculture. Techniques such as SHapley Additive exPlanations (SHAP) and Local Interpretable Model-agnostic Explanations (LIME) have been employed to identify key drivers of agricultural productivity and technology adoption. While these methods successfully highlight global and local feature importance—revealing \textit{what} factors influence a farmer's classification—they inherently lack actionability. They cannot provide a concrete, step-by-step pathway for a farmer to transition from a low-skill to a high-skill segment.
+
+\subsection{Counterfactual Explanations and Actionability}
+Counterfactual Explanations (CFs) address the limitations of traditional XAI by answering ``what-if'' scenarios. Instead of merely attributing importance weights, CFs generate a hypothetical profile showing the minimal feature perturbations required to change a model's prediction. While CFs have seen rapid adoption in finance (e.g., credit scoring) and healthcare, their application in smart agriculture and extension services remains largely unexplored. Furthermore, real-world agricultural interventions require strict monotonic constraints (e.g., a farmer's skill level can increase but cannot practically decrease to achieve a higher classification). This paper bridges this gap by applying a monotonically constrained CF framework to generate actionable, personalized agricultural training paths.
+
+\section{Methodology}\label{sec3}
+\subsection{Data Preparation and Target Clusters}
+In this study, we utilized a panel dataset of farmers ($N=833$), extracting baseline features from Year 0. The feature space encompasses 15 variables, categorized into immutable features and mutable skill domains. Farmer target clusters (Low-skill, Moderate-skill, High-skill) were strictly mapped from pre-established baseline centroids to guarantee stable ground truth.
+
+\subsection{Monotonic Counterfactual Generation via Genetic Algorithm}
+To generate actionable recommendations, we implemented the Diverse Counterfactual Explanations (DiCE) framework. We configured the DiCE engine using a Genetic Algorithm (GA) backend, bounded by monotonic constraints. For a given farmer profile $x$, the counterfactual profile $x'$ is generated by optimizing the following objective function:
+\begin{equation}
+L(x, x', y, y') = \lambda_1 \text{dist}(x, x') + \lambda_2 \text{sparsity}(x') + \text{loss}(f(x'), y')
+\end{equation}
+where $y'$ is the desired target cluster, $\text{dist}$ is the $L_1$ distance minimizing the magnitude of skill increments, and $\text{sparsity}$ penalizes the number of modified skill domains.
+
+\section{Experiments and Results}\label{sec4}
+\subsection{Base Classifier Performance}
+A Random Forest classifier was trained to establish the baseline mapping. Evaluated via 5-fold GroupKFold cross-validation (grouped by farmer ID), the model achieved an average accuracy of 93.05\% ($\pm$ 1.38\%), confirming its reliability for subsequent XAI extraction.
+
+\subsection{Quantitative Evaluation of Counterfactual Quality}
+For the critical transition path from Low-skill (Cluster 0) to Moderate-skill (Cluster 1), the GA successfully generated valid counterfactuals for 100\% of the tested instances. Crucially, the average sparsity achieved was 2.76 features. The average $L_1$ distance of 2.32 further demonstrates that the required magnitude of skill improvement is minimal and practically achievable.
+
+\subsection{Actionability and Transition Paths}
+% Include Figure 1 here
+To operationalize the counterfactuals, the feature perturbations were mapped to corresponding extension courses. Analysis reveals that ``Marketing and Value Addition'' and ``Technology Adoption'' emerged as the most frequently recommended interventions for the Low-to-Moderate transition.
+
+\section{Discussion and Conclusion}\label{sec5}
+
+\subsection{Discussion}
+The integration of a Genetic Algorithm-based Counterfactual framework provides a substantial advancement over traditional agricultural segmentation methods. The quantitative evaluation demonstrates that the generated transition paths are not only valid but highly practical. By achieving an average sparsity of 2.76 features, the framework ensures that a farmer classified in the Low-skill cluster only needs to focus on 2 to 3 specific training domains. 
+
+In our case studies, ``Marketing and Value Addition'' and ``Technology Adoption'' emerged as the predominant bottlenecks for low-skill farmers. This algorithmic insight aligns with modern agricultural economic challenges, where production capability alone is insufficient without market integration and technological literacy. Furthermore, the computational cost of the Genetic Algorithm (averaging approximately 4.0 seconds per generated counterfactual) represents a highly acceptable trade-off. In the context of agricultural extension services, where recommendations are generated offline or during advisory planning sessions rather than in real-time, this execution time is negligible compared to the value of the personalized action plans.
+
+\subsection{Limitations and Future Work}
+While the proposed framework successfully generates actionable training recommendations, it currently relies on cross-sectional baseline data. The generated counterfactuals represent algorithmic hypotheticals rather than observed causal outcomes. Future research should incorporate dynamic, time-series tracking to evaluate the long-term impact of these personalized interventions and validate whether farmers who followed the recommended paths successfully transitioned to higher skill clusters in subsequent years.
+
+\subsection{Conclusion}
+This paper introduces a novel, actionable XAI framework for agricultural extension services using Counterfactual Explanations. By establishing a Random Forest baseline and applying a Genetic Algorithm constrained by real-world monotonicity, we successfully translated mathematical feature perturbations into personalized, highly sparse training recommendations. The proposed method shifts the paradigm of agricultural analytics from passive risk classification to proactive, personalized human capital development, providing extension officers with a robust tool to allocate training resources efficiently.
+
+\end{document}
