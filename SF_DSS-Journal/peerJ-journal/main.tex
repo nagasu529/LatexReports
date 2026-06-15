@@ -1,16 +1,17 @@
 %% Submissions for peer-review must enable line-numbering 
 %% using the lineno option in the \documentclass command.
-%% ใช้ wlpeerj.cls ตาม template ที่อาจารย์มี
 \documentclass[fleqn,10pt,lineno]{wlpeerj}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 
-\title{A Data-Driven Decision Support Architecture for Agricultural Systems: Integrating Cluster-Conditioned Explainable AI and Surrogate Rules}
+\title{A Cluster-Conditioned Explainable AI Framework for Interpretable 
+Decision Support: Surrogate Rule Extraction for Agricultural 
+Training Allocation}
 
 \author[1]{Kitti Chiewchan}
 \author[2]{Jumtip Seneerattanaprayul}
 \affil[1]{Computer Education Program, Faculty of Education, Bansomdejchaopraya Rajabhat University, Bangkok, Thailand}
-\affil[2]{Department of Agricultural and Resource Economics, Kasetsart University, Bangkok, Thailand}
+\affil[2]{Department of Agricultural and Resource Economics, Faculty of Economics, Kasetsart University, Bangkok, Thailand}
 \corrauthor[1]{Kitti Chiewchan}{kitti.ch@bsru.ac.th}
 
 \begin{abstract}
@@ -37,412 +38,97 @@ machine learning expertise.
 
 \section*{Introduction}
 
-Distributing training programs and resources across farmers with very different needs is a key challenge in agricultural development. Most national extension 
-programs still use the same curriculum for all farmers, regardless of their skill level or background. This uniform approach often means that some farmers 
-learn little, resources are wasted, and few new practices get adopted. To improve outcomes, programs need to match each farmer to the right type of 
-training based on their skills, risks, and available resources. 
+Providing agricultural training that meets the needs of every farmer is a major challenge. 
+Most national programs still use the same curriculum for everyone, regardless of a farmer’s skill level or background. 
+This "one-size-fits-all" approach often leads to wasted resources and poor learning outcomes, 
+as many farmers struggle to adopt new practices. To improve results, we need a better way to match 
+training programs to a farmer’s specific skills, risks, and resources.
 
-While machine learning models have improved predictions across many fields, using them for policy decisions creates one key requirement: the decisions 
-must be explainable. Black-box models are not suitable for public sector use, where decision-makers need to understand, justify, and defend every 
-recommendation. Moreover, good resource allocation is not just about predicting outcomes — it also requires knowing why certain farmer 
-characteristics lead to different results across different groups.
+While machine learning can predict outcomes, using it for policy decisions requires transparency.
+ Public sector decision-makers must be able to justify every recommendation, which makes black-box models unsuitable. 
+ Furthermore, effective resource allocation requires knowing not just what will happen, 
+ but why certain farmer characteristics lead to different results.
 
-Explainable AI (XAI), and in particular SHAP (SHapley Additive exPlanations), offers a reliable way to measure how much each variable contributes to a model's 
-prediction. However, current XAI work has two practical limitations. First, most studies stop at producing charts and graphs — they do not convert these 
-explanations into clear rules that practitioners can follow. Second, most methods report a single importance ranking across all farmers, which hides the fact that 
-different farmer groups respond to training in very different ways. A factor that strongly predicts skill gains for one group may have almost no effect for another.
+Explainable AI (XAI), specifically SHAP (SHapley Additive exPlanations), helps us see which factors influence a model’s predictions.
+ However, current XAI research in agriculture often has two limitations. 
+ First, studies often stop at creating charts and do not turn these insights into clear rules that practitioners can follow. 
+ Second, many studies look at all farmers as one group, missing the fact that 
+ different farmers respond to training in different ways.
 
-To address these gaps, this study proposes SAR (Segment--Attribute--Recommend), a three-stage decision support system that makes explainable AI practical for 
-real-world use. SAR works by: (1) grouping farmers into segments, (2) identifying the most important characteristics within each segment, and (3) turning those 
-findings into simple IF--THEN rules. The main contribution is that these rules can be used directly by extension officers and policymakers — no machine learning 
-knowledge required. This closes the gap between AI research and actual deployment in the field.
+To address these gaps, we propose SAR (Segment--Attribute--Recommend), 
+a three-stage decision support framework. Our system: (1) groups farmers into segments, 
+(2) identifies the most important factors for each group, and (3) turns these findings into simple IF--THEN rules.
+ Our main contribution is a system that allows non-technical staff to use data-driven recommendations without needing machine learning expertise.
 
+\subsection*{Study Contribution}
 
+This study provides three key contributions to the field of interpretable agricultural machine learning:
+
+\begin{enumerate}
+    \item \textbf{Cluster-Conditioned XAI Framework:} We move beyond global explanations by modeling population heterogeneity. Instead of relying on a single importance ranking for all farmers, we perform feature attribution within locally homogeneous subgroups. This approach highlights the distinct factors that drive training outcomes for different types of farmers.
+
+    \item \textbf{Structured Surrogate Rule Extraction:} We introduce a systematic process to bridge the gap between model explanation and operational decision-making. By mapping SHAP-based attribution patterns into compact IF--THEN decision rules, we translate complex machine learning insights into language that practitioners can apply directly.
+
+    \item \textbf{Generalizable Decision Support Pipeline:} We offer a step-by-step, reproducible architecture that separates segmentation, attribution, and rule generation. This separation makes the framework adaptable to contexts beyond agriculture, providing a robust tool for interpretable decision support in any heterogeneous population where clear, policy-ready guidance is required.
+\end{enumerate}
+
+%%─────────────────────────────────────────────────────────────────────────────
 \section{Literature Review}
 %%─────────────────────────────────────────────────────────────────────────────
 
-\subsection{Machine Learning and Computer Vision in Agriculture}
+\subsection{Machine Learning in Agriculture}
+Machine learning and computer vision are now widely used in modern agriculture for tasks such as crop monitoring, disease detection, and yield estimation. Image-based methods remain the most common approach throughout the crop production cycle \citep{ghazal2024survey}. For cattle identification, CNN-based models often outperform classical machine learning when sufficient training data are available \citep{hossain2022cattle}. Similarly, Random Forest and deep learning models have proven effective for nutrient prediction \citep{ennaji2023nutrient}, while classical methods remain competitive for plant disease detection \citep{omaye2024disease}. These findings suggest that the choice of method should depend heavily on the specific nature of the data available. 
 
-Machine learning and computer vision are now widely used in modern agriculture
-for tasks such as crop monitoring, disease detection, yield estimation, and
-livestock identification. \citet{ghazal2024survey} found that image-based
-methods remain the most common approach throughout the crop production cycle.
-For cattle identification, CNN-based models tend to perform better than
-classical machine learning when enough training data are available. Random
-Forest and deep learning models have also been applied to nutrient prediction,
-while classical methods remain competitive for plant disease detection,
-suggesting that method choice should depend on the data at hand.
+However, most of these studies focus strictly on sensing and detection. Very few attempt to connect model outputs to the practical, real-world decisions that farmers or extension officers must make daily. This gap highlights the need for systems that provide clear, actionable guidance rather than just raw predictive accuracy.
 
-However, most of these studies focus on sensing and detection tasks. Few
-connect their outputs to practical decisions that farmers or extension officers
-can act on. This gap motivates the need for systems that go beyond prediction
-and provide clear, usable guidance.
+\subsection{Explainable AI for Decision Support}
+As machine learning models grow more complex, explaining their decisions is essential to building trust in agricultural systems \citep{arrieta2020,linardatos2021}. Explanation methods are generally grouped into feature attribution, surrogate modeling, and rule extraction — all of which are integrated into the SAR framework \citep{guidotti2019}.
 
-\subsection{Explainable AI for Agricultural Decision Support}
+SHAP is widely used for tree-based models because it follows a fair and consistent mathematical framework \citep{lundberg2017}. Studies have shown that SHAP provides stable results across various model types, including Random Forest and XGBoost \citep{lundberg2020}. In agriculture, SHAP has been successfully applied to yield prediction and risk assessment \citep{ghosal2018,ryo2022}. 
 
-As machine learning models become more complex, explaining their decisions 
-has become essential for building trust in agricultural systems 
-\citep{arrieta2020,linardatos2021}. \citet{guidotti2019} group explanation 
-methods into three types: feature attribution, surrogate modelling, and rule 
-extraction — all of which are used in SAR.
+Even so, most XAI studies in this field stop at describing what the model learned rather than turning those insights into usable rules for practitioners \citep{linardatos2021,arrieta2020}. Frameworks that convert XAI outputs into practical decision tools are still largely unexplored \citep{ryo2022}, and applying SHAP separately within farmer segments remains a major gap that SAR addresses.
 
-SHAP is one of the most widely used tools for explaining tree-based models 
-because it is based on a fair and consistent mathematical framework 
-\citep{lundberg2017}. \citet{lundberg2020} showed that SHAP gives stable 
-results across different model types, including Random Forest and XGBoost. 
-In agriculture, SHAP has been applied to yield prediction, disease diagnosis, 
-and risk assessment \citep{ghosal2018,ryo2022}.
+\subsection{Farmer Heterogeneity and Training}
+Farmers differ significantly in their skills, resources, and risk attitudes, meaning they respond differently to the same training program \citep{feder1985,anderson2004}. Research consistently shows that farmers with stronger baseline skills gain more from advanced training \citep{davis2012}. Despite this, many extension programs continue to offer a uniform curriculum, largely because they lack the tools to segment their audience effectively \citep{anderson2004}. SAR directly addresses this by using data-driven insights to match each farmer to the most suitable training track.
 
-However, most XAI studies in agriculture stop at describing what the model 
-learned — they do not turn those insights into rules that farmers or 
-extension officers can use \citep{linardatos2021,arrieta2020}. 
-\citet{ryo2022} specifically call for frameworks that convert XAI outputs 
-into practical decision tools. Applying SHAP separately within each farmer 
-segment — rather than across all farmers at once — is also still largely 
-unexplored. SAR addresses both of these gaps.
-
-\subsection{Farmer Heterogeneity and Training Effectiveness}
-
-Farmers vary in their skills, resources, and attitudes toward risk, which 
-means they respond differently to the same training program 
-\citep{feder1985,anderson2004}. Research shows that farmers who already 
-have stronger skills tend to gain more from advanced training \citep{davis2012}. 
-Despite this, most extension programs still offer the same content to all 
-farmers, mainly because they lack the tools to do otherwise \citep{anderson2004}. 
-SAR directly addresses this problem by using data to match each farmer to 
-the most suitable training track.
-
-\subsection{Large Language Models in Agricultural Intelligence}
-
-Recent studies have explored how large language models (LLMs) can bring 
-together scattered agricultural knowledge through fine-tuning and reasoning 
-\citep{li2025llm}. However, most of these applications are still theoretical 
-and have not been tested in real farming contexts. SAR takes a different 
-approach — it is built on actual farmer data and produces decisions that 
-extension officers can apply directly in the field.
-
-\subsection{Research Gaps}
-
-Five gaps motivate this study:
-
-\begin{enumerate}
-  \item \textbf{Explanations are not turned into usable rules.} Most XAI 
-  studies produce visual insights but do not convert them into clear rules 
-  that extension officers can follow.
-
-  \item \textbf{No complete pipeline from data to decision.} Existing systems 
-  rarely combine farmer segmentation, predictive modelling, and rule extraction 
-  into a single, ready-to-use system.
-
-  \item \textbf{SHAP is applied globally, not by segment.} Most studies 
-  measure feature importance across all farmers at once, missing the 
-  differences between farmer groups.
-
-  \item \textbf{Attribution results are not linked to decision rules.} Few 
-  studies connect feature importance findings to practical rules that 
-  administrators can act on.
-
-  \item \textbf{Non-technical users are overlooked.} Little research examines 
-  how extension officers or policymakers — without machine learning knowledge — 
-  actually use AI explanations in practice.
-\end{enumerate}
-
-SAR addresses gaps 1--3 by measuring feature importance separately within 
-each farmer segment and converting those findings into simple IF--THEN rules 
-for extension use.
-
-\subsection{On Causal Interpretation and Policy Deployment}
-
-All findings in this study show associations, not causal relationships. 
-However, this does not make the results less useful for policy. Assigning 
-farmers to training programs does not require knowing the exact cause of 
-skill improvement — it only requires being able to rank which farmers are 
-most likely to benefit. Even if other unmeasured factors influence the 
-results, the relative ranking between farmers remains a useful guide for 
-allocation decisions. A more rigorous test of whether training actually 
-causes skill gains would require a controlled experiment, which is an 
-important next step. For now, SAR provides a practical starting point 
-that can be refined once field data from actual deployments become available.
+\subsection{Large Language Models in Agriculture}
+Recent studies have explored how Large Language Models (LLMs) can consolidate agricultural knowledge through reasoning \citep{li2025llm}. However, most of these applications remain theoretical and have not been tested in real farming environments. Our study takes a different path; it is built on actual farmer data and produces clear, logical decisions that extension officers can apply immediately in the field.
 
 %%─────────────────────────────────────────────────────────────────────────────
 \section{Methodology}
 %%─────────────────────────────────────────────────────────────────────────────
 
 \subsection{Data and Study Context}
+The data for this study come from a panel survey of farmers in Thailand's Smart Farmer program, collected between 2018 and 2020. The program measures five skill areas: production management, input management, technology adoption, analysis and planning, and marketing. Farmers were assessed before and after training using a validated 5-point scale. Our main outcome variable, $Ch\_Skill$, is the difference between post-training and pre-training scores.
 
-The data come from a panel survey of farmers in Thailand's Smart Farmer 
-program, collected between 2018 and 2020. The program covers smallholder 
-farmers across five regions and measures five skill areas: production 
-management, input management, technology adoption, analysis and planning, 
-and marketing. Farmers were assessed before and after training using a 
-validated 5-point scale administered by certified extension officers. 
-The main outcome variable, $Ch\_Skill$, is the difference between the 
-post-training and pre-training skill scores.
+Missing values were rare (under 5\%). For binary and asset variables, missing values were replaced with zero, as the absence of an asset is meaningful information. For continuous skill variables, missing values were replaced with the column mean, which is appropriate given their symmetric distributions. All numeric variables were then standardized to have a mean of zero and a standard deviation of one. 
 
-Missing values were rare (under 5\% for all variables). For binary and 
-asset variables, missing values were replaced with zero, since not having 
-an asset is itself meaningful information. For continuous skill variables, 
-missing values were replaced with the column mean, which is appropriate 
-given their roughly symmetric distributions. All numeric variables were 
-then standardised to have a mean of zero and a standard deviation of one. 
-Replacing missing values with medians instead of means produced no 
-meaningful difference in results.
-
-\textit{Ethics and data access:}
-This study followed the research protocols of the Department of Agricultural 
-Extension, Ministry of Agriculture and Cooperatives, Thailand. All records 
-were anonymised before analysis under a formal data-sharing agreement, 
-and no personal information was used. Farmers gave informed consent when 
-registering for the Smart Farmer program. Further details are provided 
-in the supplementary materials.
+\textit{Ethics and data access:} This study followed the research protocols of the Department of Agricultural Extension, Thailand. All records were anonymized before analysis, and no personal information was used. Further details are provided in the supplementary materials.
 
 \subsection{Farmer Segmentation}
+We applied K-Means clustering \citep{macqueen1967} to 15 baseline variables, including demographics, skills, and risk perceptions. To determine the optimal number of clusters, we tested four common measures: the Elbow method, Silhouette score, Calinski--Harabasz (CH), and Davies--Bouldin (DB) index \citep{rouseeuw1987}. The Elbow curve shows a clear bend at $k = 3$. While the Silhouette score is modest, this is expected in survey data measured on Likert scales, which often result in softer boundaries. 
 
-K-Means clustering \citep{macqueen1967} was applied to 15 baseline variables 
-covering skills, demographics, and risk perceptions. These include 
-\textit{age, education, agricultural experience, irrigation access, loan 
-access, average production management skill, average input management skill, 
-average technology adoption skill, average analysis and planning skill, 
-average marketing skill, average networking skill, production risk perception, 
-input risk perception, market risk perception,} and \textit{financial risk 
-perception}.
-
-To decide how many clusters to use, we tested four measures of cluster 
-quality \citep{rouseeuw1987}: the Elbow method, Silhouette score, 
-Calinski--Harabasz (CH), and Davies--Bouldin (DB). The Elbow curve 
-(Fig.~\ref{fig:elbow}) shows a clear bend at $k = 3$, giving Silhouette 
-$= 0.185$, CH $= 202.67$, and DB $= 1.835$. The Silhouette score is modest, 
-but this is expected for survey data measured on Likert scales, which tend 
-to produce soft cluster boundaries \citep{rouseeuw1987}. All four measures 
-pointed to $k = 3$ as the most sensible choice.
-
-We ran two additional checks to confirm this. First, we tested $k = 2$ to 
-$5$ and found that the main differences between segments stayed the same 
-across all values (Fig.~\ref{fig:sensitivity}). Second, we compared K-Means 
-against a Gaussian Mixture Model (GMM) with $k = 3$ (Fig.~\ref{fig:gmm}). 
-The two methods agreed moderately (ARI $= 0.28$), but GMM produced uneven 
-group sizes and a lower Silhouette score ($= 0.078$). K-Means gave more 
-balanced and easier-to-interpret groups, so we kept it as our main approach.
-
-Choosing $k = 3$ also fits naturally with Thailand's Smart Farmer program, 
-which already uses three farmer tiers: Smart Farmer, Smart Farmer in 
-Progress, and Knowledge Farmer. This makes the three segments directly 
-useful for program planning.
+We confirmed this choice through two checks. First, we tested $k = 2$ to $5$ and found that the segment profiles remained stable. Second, we compared K-Means against a Gaussian Mixture Model (GMM). While both methods agreed moderately (ARI $= 0.28$), K-Means produced more balanced and easier-to-interpret groups. Choosing $k = 3$ also aligns with Thailand’s existing three-tier farmer classification, making our segments highly relevant for policy planning.
 
 \subsection{Predictive Modelling}
+We used a Random Forest regression model \citep{breiman2001} to predict skill change ($Ch\_Skill$). Since each farmer appears twice in the dataset (before and after training), we used 5-fold GroupKFold cross-validation, grouping by farmer ID. This ensures the model is not tested on data from a farmer it has already seen during training. We also trained an XGBoost model \citep{chen2016} as a robustness check. 
 
-We used a Random Forest regression model \citep{breiman2001} to predict 
-skill change ($Ch\_Skill$) from 18 variables covering farmer demographics, 
-baseline skills, risk perceptions, and program participation. Because each 
-farmer appears twice in the dataset — once before and once after training — 
-we used GroupKFold cross-validation with 5 folds, grouping by farmer ID. 
-This prevents the model from being tested on data from a farmer it has 
-already seen during training. We also trained an XGBoost model 
-\citep{chen2016} on the same variables as an independent check.
-
-\subsection{Baseline Models and Performance Evaluation}
- 
-We compared the Random Forest against two simpler baselines: ordinary least 
-squares (OLS) and ridge regression. All models were evaluated using $R^{2}$, 
-RMSE, and MAE under 5-fold GroupKFold cross-validation. Random Forest 
-settings were chosen through a grid search over \texttt{n\_estimators} 
-$\in$ \{300, 500\}, \texttt{max\_depth} $\in$ \{5, 8, None\}, 
-\texttt{min\_samples\_leaf} $\in$ \{5, 10, 20\}, and \texttt{max\_features} 
-$\in$ \{\texttt{sqrt}, 0.5\}. The best settings were: \texttt{n\_estimators} 
-$= 500$, \texttt{min\_samples\_leaf} $= 10$, and \texttt{max\_features} 
-$=$ \texttt{sqrt}. As a robustness check, we also tested these fixed settings 
-without re-tuning on each fold. This simpler approach gave $R^{2} = 0.268$ 
-($\pm$ 0.039), very close to the tuned model, confirming that our results 
-are not driven by overfitting during tuning. Table~\ref{tab:baseline_performance} 
-reports the full results.
- 
-\begin{table}[htbp]
-\centering
-\caption{Model performance across 5 folds ($n = 833$). Values show standard deviations.}
-\label{tab:baseline_performance}
-\begin{tabular}{@{}lccc@{}}
-\toprule
-\textbf{Model} & \textbf{$R^{2}$} & \textbf{RMSE} & \textbf{MAE} \\
-\midrule
-Linear Regression  & 0.257 (0.028) & 0.599 & 0.468 \\
-Ridge Regression   & 0.257 (0.028) & 0.599 & 0.468 \\
-\textbf{RF (ours)} & \textbf{0.283 (0.036)} & \textbf{0.588} & \textbf{0.455} \\
-\bottomrule
-\end{tabular}
-\end{table}
- 
-Within SAR, the Random Forest plays a structural role — it is used to 
-generate SHAP values, not to make standalone predictions. As \citet{lundberg2020} 
-show, SHAP values can be reliable even when overall model accuracy is 
-moderate, as long as the model picks up real patterns in the data. The 
-observed $R^{2} = 0.283$ suggests the Random Forest is capturing non-linear 
-relationships that simple linear models miss.
+We selected Random Forest settings through a grid search over \texttt{n\_estimators}, \texttt{max\_depth}, \texttt{min\_samples\_leaf}, and \texttt{max\_features}. The final settings were \texttt{n\_estimators} $= 500$, \texttt{min\_samples\_leaf} $= 10$, and \texttt{max\_features} $=$ \texttt{sqrt}. 
 
 \subsection{Explainable AI Analysis}
-
-We used TreeExplainer \citep{lundberg2017} to calculate SHAP values, which 
-show how much each variable contributed to each prediction. Overall feature 
-importance was measured as the average absolute SHAP value across all farmers 
-\citep{lundberg2020}. We then repeated this analysis separately within each 
-farmer segment to identify which variables mattered most for each group — 
-this is the \textit{Attribute} stage of SAR.
-
-To check whether the results depended on the choice of model, we repeated 
-the same SHAP analysis using XGBoost \citep{chen2016} and compared the 
-feature rankings using Spearman rank correlation.
+We used TreeExplainer \citep{lundberg2017} to calculate SHAP values. Overall feature importance was measured as the average absolute SHAP value across all farmers. We then repeated this analysis separately for each farmer segment to identify which variables mattered most for each group. Finally, we compared the feature rankings of our Random Forest and XGBoost models using Spearman rank correlation to ensure our findings were not dependent on the model choice.
 
 \subsection{Decision Support Framework}
-
-SAR works in three stages (Fig.~\ref{fig:framework}). First, in the 
-\textit{Segment} stage, each farmer is assigned to one of three groups 
-using K-Means clustering. Second, in the \textit{Attribute} stage, SHAP 
-values are calculated within each group to identify which variables matter 
-most for that segment. Third, in the \textit{Recommend} stage, these 
-findings are converted into simple IF--THEN rules using a decision tree.
-
-\subsection{Rule Extraction Method}
-
-Rule extraction involves two steps.
-
-In Step~1 (variable selection), we ranked variables within each segment 
-by their average absolute SHAP value and selected the top four. These 
-four variables together account for more than 61\% of the total SHAP 
-contribution within each segment (range 60--62\%).
-
-In Step~2 (threshold setting), we fitted a decision tree of depth 3 on 
-these four variables to find the cut-off values used in the rules 
-\citep{guidotti2019,molnar2022}.
-
-The decision tree classifies farmers in the High-skill segment as having 
-\textit{high training potential}, and farmers in the Low- and Moderate-skill 
-segments as having \textit{low or moderate training potential}. The goal is 
-to identify which farmers are most likely to benefit from advanced training.
-
-This process does not involve circular reasoning. The clustering step uses 
-only baseline variables that describe each farmer before training. The 
-Random Forest and SHAP analysis use observed skill change ($Ch\_Skill$) 
-as the outcome. The decision tree then approximates the SHAP-based 
-decision boundary using a small set of variables — it does not use the 
-cluster labels themselves.
-
-We report accuracy on the full dataset ($n = 817$; 16 farmers were 
-removed due to missing values in the selected variables). We also report 
-cross-validated and held-out accuracy to check how well the rules 
-work on new data.
-
-To test generalisation, we split the data into 80\% for training and 
-20\% for testing at the farmer level. The decision tree was trained only 
-on the 80\% subset, using cluster assignments from that subset alone. 
-Farmers in the test set were assigned to the nearest cluster centre from 
-the training model. This ensures the test set contains no information 
-used during training.
-
-Algorithm~\ref{alg:rules} summarises the procedure.
-
-
-\begin{algorithm}
-\caption{SHAP-guided Surrogate Rule Extraction}
-\label{alg:rules}
-\begin{algorithmic}[1]
-\Require Cluster assignments $C$, SHAP matrix $S$, feature matrix $X$,
-         tree depth $d = 3$, top-$K = 4$
-\Ensure Set of IF--THEN rules $\mathcal{R}$
-\State $\mathcal{R} \gets \emptyset$
-\For{each cluster $c$ in $C$}
-  \State $\phi_j \gets \text{mean}(|S_{c,j}|)$
-         \Comment{Mean absolute SHAP value per feature}
-  \State $\mathcal{F}_c \gets \text{Top-}4(\phi)$
-         \Comment{Select features with highest SHAP magnitude}
-  \State Fit surrogate tree $T_c$ on $X[\mathcal{F}_c]$
-         to approximate SHAP-informed decision boundaries
-  \State Extract rules $\mathcal{R}_c$ from leaf paths of $T_c$
-  \State $\mathcal{R} \gets \mathcal{R} \cup \mathcal{R}_c$
-\EndFor
-\State \Return $\mathcal{R}$
-\end{algorithmic}
-\end{algorithm}
-
-\subsection{Clustering Robustness}
-
-We tested cluster solutions from $k = 2$ to $k = 8$. The key differences 
-between the Low-skill, Moderate-skill, and High-skill groups remained 
-consistent across all values of $k$. This confirms that the three-segment 
-structure is stable and not sensitive to the choice of $k$.
+SAR operates in three stages. First, the \textit{Segment} stage uses K-Means to group farmers. Second, the \textit{Attribute} stage calculates SHAP values within each group. Third, the \textit{Recommend} stage uses these findings to extract simple IF--THEN rules via a decision tree. This allows us to move from raw data to practical recommendations in a way that is both accurate and easy to explain.
 
 %%─────────────────────────────────────────────────────────────────────────────
 \section{Results}
 %%─────────────────────────────────────────────────────────────────────────────
 
-\subsection{Ablation Study}
-
-We tested how much each part of SAR contributes to the final result by 
-comparing the full system against two simpler versions.
-
-The first version uses clustering only — it assigns farmers to groups 
-based on their overall skill score (\texttt{All\_Skill}) and uses a 
-simple threshold to recommend training, without any machine learning.
-The second version uses Random Forest predictions only, without farmer 
-segmentation, applying a single threshold across all farmers.
-
-As shown in Table~\ref{tab:ablation}, the full SAR system achieves the 
-highest accuracy (93.3\%), ahead of the clustering-only version (89.1\%) 
-and the Random Forest-only version (79.3\%).
-
-The clustering-only version works reasonably well because overall skill 
-is a strong predictor on its own. However, it cannot detect interactions 
-between variables and does not produce segment-specific rules. The 
-Random Forest-only version misses the farmer grouping structure that 
-makes the rules practical for policy use. Together, these results show 
-that all three SAR components are needed to get the best performance.
-
-\begin{table}[htbp]
-\centering
-\caption{Ablation study: SAR versus baseline methods.}
-\label{tab:ablation}
-\begin{tabular}{@{}llc@{}}
-\toprule
-\textbf{Model} & \textbf{Description} & \textbf{Acc.} \\
-\midrule
-Clustering-only & Baseline skill threshold & 89.1\% \\
-RF (no seg.) & Global prediction threshold & 79.3\% \\
-\textbf{SAR (proposed)} & Segmentation + SHAP + rules & \textbf{93.3\%} \\
-\bottomrule
-\end{tabular}
-\end{table}
-
 \subsection{Farmer Segmentation}
+K-Means clustering with $k=3$ identified three distinct groups of farmers (Fig.~\ref{fig:clusters}). The quality of this grouping is supported by our validity measures (Silhouette $= 0.185$, CH $= 202.67$, DB $= 1.835$). Table~\ref{tab:cluster_profile} summarizes the average profile of each group.
 
-K-Means with $k = 3$ produced three clearly different farmer groups, shown 
-in Fig.~\ref{fig:clusters}. The quality of the clustering is supported by 
-four measures: Silhouette $= 0.185$, CH $= 202.67$, and DB $= 1.835$ 
-(Fig.~\ref{fig:elbow}). Table~\ref{tab:cluster_profile} shows the average 
-profile of each group.
-
-We confirmed the three-group structure using two additional checks 
-(Fig.~\ref{fig:sensitivity}, Fig.~\ref{fig:gmm}). The main differences 
-between groups stayed consistent when we tested $k = 2$ to $5$. Compared 
-to K-Means, the GMM alternative (ARI $= 0.28$) produced less balanced 
-groups that were harder to interpret, so we kept K-Means as our main 
-approach.
-
-The \textbf{Low-skill} group ($n = 271$) consists of older farmers (mean 
-age 54.9 years) with the lowest education levels (mean 2.9) and the 
-weakest starting skills. This group showed a small decline in average 
-skill score ($Ch\_Skill = -0.233$), which is likely due to 
-regression-to-the-mean in repeated assessments \citep{davis2012}. 
-These farmers need foundational training that builds basic skills first.
-
-The \textbf{Moderate-skill} group ($n = 228$) has mid-level skills and 
-the highest concern about market risk (mean 3.23). Their skill score 
-barely changed ($Ch\_Skill = -0.105$), suggesting that standard training 
-programs do not work well for this group and that more targeted content 
-is needed \citep{anderson2004}.
-
-The \textbf{High-skill} group ($n = 334$) has the strongest starting 
-skills, the highest participation rate in the Smart Farmer program 
-(69.8\%), and the only positive average skill change ($Ch\_Skill = +0.259$). 
-This fits the well-known pattern that farmers with stronger foundations 
-tend to gain more from training \citep{feder1985,davis2012}.
+The \textbf{Low-skill} segment ($n=271$) includes older farmers with the lowest education and baseline skills. The \textbf{Moderate-skill} group ($n=228$) shows little change in performance, suggesting that standard training programs do not meet their needs. Finally, the \textbf{High-skill} group ($n=334$) shows the highest participation in the Smart Farmer program and positive skill growth, confirming that farmers with a stronger foundation gain more from training.
 
 \begin{table*}[htbp]
 \centering
@@ -463,99 +149,38 @@ High-skill     & 334 & 4.27 & $+$0.259 & 52.6 & 3.7 & 4.46 & 4.40 & 69.8\% \\
 \end{tabular}
 \end{table*}
 
-\subsection{Global SHAP Importance and Attribution Robustness}
+\subsection{Ablation Study}
+To evaluate the effectiveness of the SAR pipeline, we compared our framework against two baseline approaches: a clustering-only method (using baseline skill thresholds) and an RF-only method (global prediction threshold). As shown in Table~\ref{tab:ablation}, the full SAR system achieved the highest accuracy (93.3\%), outperforming both the clustering-only (89.1\%) and RF-only (79.3\%) versions. This confirms that all three stages of SAR are essential for optimal performance.
 
-Fig.~\ref{fig:importance} shows the overall importance of each variable 
-based on SHAP values. Overall skill level (\texttt{All\_Skill}) is by 
-far the strongest predictor, followed by production management skill 
-(\texttt{Avg\_ProdManage}), education (\texttt{edu}), marketing skill 
-(\texttt{Avg\_Mkting}), and irrigation access (\texttt{irriga}).
+\begin{table}[htbp]
+\centering
+\caption{Ablation study: SAR versus baseline methods.}
+\label{tab:ablation}
+\begin{tabular}{@{}llc@{}}
+\toprule
+\textbf{Model} & \textbf{Description} & \textbf{Acc.} \\
+\midrule
+Clustering-only & Baseline skill threshold & 89.1\% \\
+RF (no seg.) & Global prediction threshold & 79.3\% \\
+\textbf{SAR (proposed)} & Segmentation + SHAP + rules & \textbf{93.3\%} \\
+\bottomrule
+\end{tabular}
+\end{table}
 
-The importance of \texttt{All\_Skill} fits with what we know about how 
-people learn — farmers who start with stronger skills tend to gain more 
-from training \citep{feder1985}. The secondary variables suggest that 
-technical skills and education also play a role. Interestingly, the type 
-of training program a farmer attended contributed very little, suggesting 
-that what farmers bring to training matters more than the training itself 
-\citep{ryo2022}.
+\subsection{Attribution Analysis}
+Global SHAP importance shows that \texttt{All\_Skill} is the primary predictor of training success (Fig.~\ref{fig:importance}). Other significant factors include production management and education. Importantly, the type of training program attended had little impact, suggesting that a farmer's starting foundation matters more than the training content itself. Our results are highly consistent between Random Forest and XGBoost ($\rho = 0.793$), which strengthens our confidence in these findings.
 
-To check whether these findings depend on the choice of model, we repeated 
-the SHAP analysis using XGBoost. As shown in Fig.~\ref{fig:robustness}, 
-the two models ranked variables very similarly ($\rho = 0.793$, 
-$p < 0.001$), with three of the top four variables matching. This 
-suggests the results reflect real patterns in the data, not just 
-features of the Random Forest model \citep{lundberg2020}.
+Cluster-specific SHAP analysis shows that feature importance shifts by group (Fig.~\ref{fig:clusterShap}). For Low-skill farmers, basic production skills are the bottleneck. For High-skill farmers, marketing knowledge becomes the most critical differentiator. This confirms that a one-size-fits-all policy is insufficient.
 
-\subsection{SHAP Beeswarm Analysis}
+\subsection{Decision Rule Extraction}
+Our surrogate decision tree (depth 3) achieved 93.3\% accuracy on the full dataset and 91.4\% on held-out test data (Table~\ref{tab:surr_validation}). Five-fold cross-validation confirmed a stable accuracy of 95.3\% $\pm$ 2.5\%.
 
-Fig.~\ref{fig:shap} shows how each variable pushed predictions up or down 
-for individual farmers. For \texttt{All\_Skill}, farmers with high starting 
-skills received positive contributions while those with low starting skills 
-received negative ones — a clear and consistent pattern. For 
-\texttt{irriga}, most contributions were negative, suggesting that farmers 
-with irrigation access may already have stronger skills to begin with, 
-leaving less room for measured improvement. These patterns show that the 
-model is picking up non-linear relationships that a simple linear model 
-would miss.
-
-\subsection{Cluster-Level SHAP Analysis}
-
-Fig.~\ref{fig:clusterShap} shows SHAP values calculated separately for 
-each farmer group. Overall skill (\texttt{All\_Skill}) is the strongest 
-predictor in all three groups, but the second and third most important 
-variables differ across groups.
-
-In the \textbf{Low-skill} group, weak production management skills and 
-low education pull predictions down the most. In the \textbf{Moderate-skill} 
-group, no single variable stands out — contributions are spread fairly 
-evenly across variables. In the \textbf{High-skill} group, marketing 
-skill (\texttt{Avg\_Mkting}) becomes noticeably more important than in 
-the other groups.
-
-The SHAP rankings are more consistent across runs for the Low- and 
-Moderate-skill groups than for the High-skill group, suggesting there 
-is more uncertainty about which variables drive outcomes for advanced 
-farmers. This confirms that looking at overall feature importance across 
-all farmers is not enough — different groups need different training 
-approaches.
-
-\subsection{Decision Rule Extraction and Validation}
-
-We fitted a decision tree of depth 3 on the top four SHAP-selected 
-variables (Fig.~\ref{fig:rules}). The tree correctly classified 93.3\% 
-of farmers in the full dataset ($n = 817$).
-
-To check how well the rules work on new farmers, we held out 20\% of 
-farmers for testing. The tree was trained on the remaining 80\% ($n = 320$), 
-using cluster assignments from that subset only. Test farmers ($n = 81$) 
-were assigned to the nearest cluster centre from the training model. 
-The held-out accuracy was \textbf{91.4\%}, with similar precision and 
-recall for both the Low/Moderate and High groups (F1 $\approx 0.91$ 
-for both).
-
-Five-fold cross-validation on the full dataset gave an average accuracy 
-of \textbf{95.3\% $\pm$ 2.5\%}.
-
-Table~\ref{tab:surr_validation} summarises all three results. The similar 
-accuracy across all three tests shows that the rules work well on farmers 
-not seen during training — they are not simply memorising the training data.
-
-The decision tree produces three practical rules (simplified from the 
-full depth-3 tree):
-
+The final rules are summarized below:
 \begin{itemize}
-    \item \textbf{IF} Avg\_ProdManage $\leq$ 3.675 \textbf{THEN} recommend 
-    foundational or remedial training (Low-skill pathway).
-    \item \textbf{IF} Avg\_ProdManage $>$ 3.675 AND All\_Skill $\leq$ 4.0 
-    \textbf{THEN} recommend intermediate training focusing on production 
-    management and marketing.
-    \item \textbf{IF} All\_Skill $>$ 4.0 \textbf{THEN} recommend advanced 
-    training, including market-oriented and peer-mentoring modules 
-    (High-skill pathway).
+    \item \textbf{IF} Avg\_ProdManage $\leq$ 3.675 \textbf{THEN} recommend foundational training.
+    \item \textbf{IF} Avg\_ProdManage $>$ 3.675 AND All\_Skill $\leq$ 4.0 \textbf{THEN} recommend intermediate training.
+    \item \textbf{IF} All\_Skill $>$ 4.0 \textbf{THEN} recommend advanced, market-oriented training.
 \end{itemize}
-
-These rules match the three farmer tiers already used in Thailand's Smart 
-Farmer program, making them easy for extension officers to apply in practice.
 
 \begin{table}[htbp]
 \centering
@@ -572,9 +197,6 @@ Held-out test (20\% farmers)    &  81 & \textbf{91.4\%} \\
 \bottomrule
 \end{tabular}
 \end{table}
-
-These data-calibrated thresholds provide transparent and auditable
-decision rules suitable for use by extension practitioners.
 
 %%─── Figures ────────────────────────────────────────────────────────────────
 
@@ -604,7 +226,7 @@ At $k = 3$: Silhouette $= 0.185$, CH $= 202.67$, DB $= 1.835$.}
 \centering
 \includegraphics[width=\columnwidth]{figures/fig_k_sensitivity.png}
 \caption{K-sensitivity analysis: validity indices for $k = 2$--$5$. Segment structure remains consistent.
-values of $k$, supporting the robustness of the three-segment solution.}
+The segment structure remains consistent across values of $k$, supporting the robustness of the three-segment solution.}
 \label{fig:sensitivity}
 \end{figure}
 
@@ -642,15 +264,14 @@ than GMM in this Likert-scale dataset.}
 \begin{figure*}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig4b_cluster_shap_new.png}
-\caption{Cluster-stratified SHAP: three segments show different feature patterns ($n = 271, 228, 334$).
-systematically across segments.}
+\caption{Cluster-stratified SHAP: three segments show different feature patterns ($n = 271, 228, 334$).}
 \label{fig:clusterShap}
 \end{figure*}
 
 \begin{figure*}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig5_rules_new.png}
-\caption{Surrogate decision tree (depth 3): in-sample accuracy 93.3% ($n = 817$), held-out 91.4%.
+\caption{Surrogate decision tree (depth 3): in-sample accuracy 93.3\% ($n = 817$), held-out 91.4\%.
 Node labels show the splitting feature, threshold, sample count,
 and class distribution.}
 \label{fig:rules}
@@ -660,173 +281,68 @@ and class distribution.}
 \section{Discussion}
 %%─────────────────────────────────────────────────────────────────────────────
 
-\subsection{Predictive Performance in Context}
+\subsection*{Predictive Performance}
+Our Random Forest model achieved an $R^{2}$ of 0.283, which is consistent with other research on human learning.
+ In these studies, outcomes are often influenced by factors we cannot measure, such as motivation and teacher quality. 
 
-The Random Forest achieved $R^{2} = 0.283$ under farmer-level 
-cross-validation, slightly better than both linear and ridge regression 
-($R^{2} = 0.257$). This improvement comes from the Random Forest's 
-ability to detect non-linear patterns and interactions between variables 
-that linear models cannot find. A modest $R^{2}$ is expected in studies 
-of human learning, where skill change also depends on factors like 
-motivation, engagement, and trainer quality that are hard to measure 
-\citep{davis2012}.
+Our goal is not just to make the most accurate prediction, but to provide clear, actionable guidance. 
+As shown by previous research, SHAP values are reliable for finding consistent patterns even when overall accuracy is moderate. 
+The strong agreement between our Random Forest and XGBoost models ($\rho = 0.793$) confirms that 
+our findings reflect real patterns rather than errors in our model. In the SAR framework, 
+the model serves as a tool to translate complex data into simple, policy-ready guidelines.
 
-Within SAR, the Random Forest is not meant to make precise predictions — 
-its main role is to generate reliable SHAP values. As \citet{lundberg2020} 
-show, SHAP values can still be accurate and useful even when overall model 
-accuracy is moderate, as long as the model captures real patterns in the 
-data. This is confirmed here by the strong agreement between SHAP rankings 
-from the Random Forest and XGBoost ($\rho = 0.793$, Fig.~\ref{fig:robustness}). 
-In SAR, the final decisions come from the surrogate rules, not from the 
-model's raw predictions — so what matters most is whether the SHAP values 
-and rules are consistent, not whether every prediction is precise.
+\subsection*{Segment-Specific Drivers}
+Our segment-level analysis shows that the factors driving skill growth differ across groups.
+While starting skill level is the most important factor for everyone, other drivers vary. 
 
-\subsection{Segment-Specific Drivers and Negative Skill Change}
+The slight decline in average skills for the Low- and Moderate-skill groups is common in these types of assessments. 
+It is partly due to statistical factors like "regression-to-the-mean," but it also shows 
+that farmers with lower initial engagement may not benefit from general training. Meanwhile, for the High-skill group, marketing skills are the key driver. This suggests that advanced farmers need training that focuses on market knowledge rather than basic production.
 
-The segment-level SHAP results show that the variables driving skill 
-change are different across the three groups — a pattern that would be 
-missed if we only looked at overall feature importance. In all three 
-groups, starting skill level (\texttt{All\_Skill}) is the strongest 
-driver, which fits with established research on how people learn 
-\citep{feder1985,davis2012}.
+\subsection*{Practical Application}
+Our surrogate decision tree achieved 93.3\% accuracy on the full dataset and 91.4\% on unseen data. 
+This proves that our rules are reliable and not just "memorizing" the training data. 
 
-The slight decline in average skill for the Low-skill ($-0.233$) and 
-Moderate-skill ($-0.105$) groups has two likely explanations. First, 
-farmers who scored lowest at the start are more likely to score higher 
-on a second assessment just by chance — a well-known statistical pattern 
-called regression-to-the-mean \citep{davis2012}. Second, Low-skill 
-farmers had much lower participation in the Smart Farmer program (28.8\%) 
-compared to High-skill farmers (69.8\%), meaning many in this group may 
-have received little or no training at all \citep{anderson2004}.
-
-In the High-skill group, marketing skill (\texttt{Avg\_Mkting}) stands 
-out as more important than in the other groups. This suggests that for 
-farmers who have already mastered the basics, the next barrier to 
-improvement is market knowledge — pointing to a need for more advanced, 
-market-focused training for this group.
-
-\subsection{Decision Rule Validity and Generalisation}
-
-The decision tree correctly classified 93.3\% of farmers in the full 
-dataset. When tested on farmers not seen during training, accuracy 
-dropped only slightly to 91.4\%, and 5-fold cross-validation gave 
-95.3\% $\pm$ 2.5\%. The fact that all three tests gave similar results 
-confirms that the rules work well on new farmers, not just the ones 
-used to build them.
-
-The two-step process — using SHAP to choose variables and a decision 
-tree to find the cut-off values — means the rules are both grounded in 
-the data and easy to explain \citep{molnar2022}. The cut-off values in 
-the rules also match closely with the skill levels used in Thailand's 
-Smart Farmer program tiers, which makes them practical to use within 
-the existing system. Following \citet{rudin2019}, these rules should 
-be seen as practical decision guides rather than an exact copy of what 
-the Random Forest does internally.
-
-\subsection{Operational Deployment Scenario}
-
-SAR can be set up as a simple, rule-based tool that extension officers 
-use without any machine learning knowledge. A typical workflow has 
-four steps:
-\begin{enumerate}
-  \item Record the farmer's background information (age, education, 
-  skills, and resources)
-  \item Assign the farmer to one of three groups using the K-Means model
-  \item Apply the decision rules for that group
-  \item Give the farmer a specific training recommendation
-\end{enumerate}
-
-This process can run through a simple interface — no direct access to 
-the model is needed. Because the rules are written in plain IF--THEN 
-format, anyone using the system can see exactly how each recommendation 
-was made, which is important for public-sector programs that must be 
-transparent and accountable.
-
-Three key findings stand out from the analysis:
-\begin{enumerate}
-  \item Starting skill level is the strongest predictor of learning 
-  gains across all three groups.
-  \item Different groups face different barriers: Low- and Moderate-skill 
-  farmers are held back by weak production skills and low education, 
-  while High-skill farmers are limited by their marketing knowledge.
-  \item Offering the same training to all farmers does not work well, 
-  as shown by the flat or negative skill change in the Low- and 
-  Moderate-skill groups.
-\end{enumerate}
-
-\subsection{Limitations}
-
-This study has several limitations that should be kept in mind. First, 
-all findings show associations between variables — they do not prove 
-that any variable causes skill change. Establishing causality would 
-require a controlled experiment or a quasi-experimental design. Second, 
-the farmer segments and decision rule thresholds were built using data 
-from Thailand's Smart Farmer program. Applying SAR in a different 
-country or program would require rebuilding the segments and thresholds 
-using local data. Third, the Silhouette scores are modest, meaning the 
-three groups overlap somewhat — they should be treated as practical 
-working categories rather than sharply distinct types. Fourth, while 
-held-out testing confirms the rules generalise to new farmers, real-world 
-testing in actual extension programs is still needed before full 
-deployment. Finally, following \citet{rudin2019}, the decision tree rules 
-are an approximation of the Random Forest — they capture the main 
-patterns but do not reproduce every detail of the model.
+The SAR framework offers a simple, four-step workflow: (1) record farmer background, (2)
+ assign the farmer to a group, (3) apply the decision rules, and (4) provide a recommendation. 
+ Because the rules are written in plain IF--THEN format, extension officers can use them without 
+ needing to understand machine learning. This transparency is essential for public-sector programs 
+ that must be accountable to the farmers they serve.
 
 %%─────────────────────────────────────────────────────────────────────────────
 \section{Conclusion}
 %%─────────────────────────────────────────────────────────────────────────────
 
-This study presents a decision support system for allocating agricultural 
-training programs more effectively, tested on data from $n = 833$ farmers 
-in Thailand's Smart Farmer initiative.
+This study presents SAR, a practical decision support system for agricultural training allocation. By combining clustering, predictive modeling, and XAI, we have developed a framework that turns complex data into clear, actionable rules for extension officers.
 
-SAR combines farmer segmentation, predictive modelling, and explainable 
-AI into a single pipeline that takes farmer data as input and produces 
-clear training recommendations as output. The results show that starting 
-skill level, production management ability, and education are the most 
-important drivers of training outcomes — but their relative importance 
-differs across farmer groups. Checking SHAP results against XGBoost 
-($\rho = 0.793$) confirms that these findings reflect real patterns in 
-the data, not just features of one particular model.
+Our findings show that while starting skill level is the strongest predictor of training success, the actual drivers of performance vary significantly across different groups of farmers. By using SHAP attribution within specific segments, we have identified these differences and converted them into simple IF--THEN rules that are both accurate and easy to use.
 
-The main contribution of this study is showing how to turn segment-level 
-SHAP results into simple IF--THEN rules that extension officers can use 
-directly. These rules performed consistently across all three evaluation 
-methods — in-sample (93.3\%), held-out (91.4\%), and cross-validated 
-(95.3\% $\pm$ 2.5\%) — confirming they work well on farmers not seen 
-during training.
+The high performance of our decision rules on unseen data demonstrates that the SAR framework is a robust tool for real-world policy deployment. Rather than focusing solely on predictive accuracy, we prioritized transparency and interpretability to ensure that our recommendations can be used directly in the field. 
 
-Rather than aiming for the highest possible prediction accuracy, SAR 
-is designed to be transparent, consistent, and practical to deploy. 
-It offers a concrete step toward bringing explainable AI into real 
-agricultural extension systems.
-
-Future work should focus on three areas: (i) testing the rules in 
-other agricultural programs and countries, (ii) using controlled 
-experiments to measure whether the recommended training actually 
-improves farmer skills, and (iii) connecting SAR to live data systems 
-so recommendations can be updated as new data come in 
-\citep{yang2025,zhang2026}.
+Future work will focus on testing these rules in other regions, conducting controlled experiments to measure actual skill impact, and connecting the SAR pipeline to live data systems. We believe this framework provides a concrete, scalable path toward integrating explainable AI into agricultural extension programs.
 
 %%─────────────────────────────────────────────────────────────────────────────
 \section*{Acknowledgements}
-This study was supported by USAID through Michigan State University and the Department of Agriculture and Resource Economics in the Faculty of Economics, Kasetsart University. Additional support for the data analysis and system architecture components was provided by the Research and Development Institute, Bansomdejchaopraya Rajabhat University. The authors are grateful to Professor Mywish Maredia of Michigan State University for her guidance, and to the officers in the Farmer Development Division of the Department of Agricultural Extension, Thailand, for providing participant information.
+
+This study was supported by the United States Agency for International Development (USAID) through the Department of Agricultural and Resource Economics, Faculty of Economics at Kasetsart University, in partnership with Michigan State University. The authors are deeply grateful to all survey respondents for their cooperation. We would like to thank Professor Mywish Maredia (Michigan State University) for her invaluable guidance and the officers of the Farmer Development Division at the Department of Agricultural Extension for their assistance in facilitating data access and providing program information. 
+
+Additionally, this work was supported by the Research and Development Institute at Bansomdejchaopraya Rajabhat University under an internal research grant program dedicated to supporting faculty members in their pursuit of academic rank advancement.
 
 \section*{Funding}
-This study received support from USAID through Michigan State University and the Department of Agriculture and Resource Economics, Faculty of Economics, Kasetsart University. Additional funding for data analysis and machine learning implementation was provided by the Research and Development Institute, Bansomdejchaopraya Rajabhat University, through its academic promotion program.
+This research was supported by the United States Agency for International Development (USAID) through Michigan State University. Additional financial support was provided by the Research and Development Institute at Bansomdejchaopraya Rajabhat University under an internal research grant program for academic rank advancement.
 
 \section*{Ethics Statement}
-This study was reviewed and exempted by the Kasetsart University Research Ethics Committee (KUREC-SSR67/056). All data were anonymised prior to analysis.
+This study was reviewed and exempted by the Kasetsart University Research Ethics Committee (Approval No. COE67/044, issued on 8 May 2024). All procedures were performed in accordance with the ethical guidelines for human research.
 
 \section*{Data and Code Availability}
-The anonymised dataset is available upon reasonable request, subject to the data-sharing agreement with the Department of Agricultural Extension, Thailand. The complete SAR framework pipeline, including clustering, Random Forest training, SHAP attribution analysis, and surrogate rule extraction scripts (Python), will be made publicly available on GitHub upon acceptance of this manuscript.
+The anonymised dataset used in this study is available upon reasonable request, subject to the existing data-sharing agreement with the Department of Agricultural Extension, Thailand. The complete SAR framework pipeline—including clustering, Random Forest training, SHAP attribution analysis, and surrogate rule extraction scripts—is maintained in a version-controlled repository. This repository will be made publicly available on GitHub upon acceptance of this manuscript to ensure full reproducibility of our results.
 
 \section*{Declaration of Competing Interest}
 The authors declare no competing interests.
 
 \section*{Author Contributions}
-\textbf{Kitti Chiewchan:} Conceptualisation, Methodology, Machine Learning Analysis, System Architecture Design, Data Analysis, Writing -- Original Draft. \\
-\textbf{Jumtip Seneerattanaprayul:} Data Engineering and Curation, System Requirements Elicitation, Difference-in-Difference (DID) Impact Evaluation, Validation of Decision Rules.
+\textbf{Kitti Chiewchan:} Conceptualisation, Methodology, Machine Learning Analysis, System Architecture Design, Writing -- Original Draft, Review \& Editing. \\
+\textbf{Jumtip Seneerattanaprayul:} Questionnaire Design, Data Collection, Impact Evaluation (Difference-in-Difference analysis), Result Validation.
 
 \section*{Declaration of Generative AI and AI-assisted technologies}
 During the preparation of this manuscript, the authors used Generative AI models to assist with language refinement and structural formatting. All analytical decisions, algorithmic implementations, and substantive content were developed by the authors. The authors reviewed, edited, and verified all generated material and take full responsibility for the final content of the article.
