@@ -30,6 +30,8 @@ Unlike black-box algorithms, SAR produces human-readable rules that non-technica
 machine learning expertise.
 \end{abstract}
 
+%% \textbf{Keywords:} Explainable AI (XAI); Surrogate Modeling; Machine Learning; Agricultural Extension; Decision Support Systems; Farmer Segmentation
+
 \begin{document}
 
 \flushbottom
@@ -111,9 +113,25 @@ We applied K-Means clustering \citep{macqueen1967} to 15 baseline variables, inc
 We confirmed this choice through two checks. First, we tested $k = 2$ to $5$ and found that the segment profiles remained stable. Second, we compared K-Means against a Gaussian Mixture Model (GMM). While both methods agreed moderately (ARI $= 0.28$), K-Means produced more balanced and easier-to-interpret groups. Choosing $k = 3$ also aligns with Thailand’s existing three-tier farmer classification, making our segments highly relevant for policy planning.
 
 \subsection{Predictive Modelling}
-We used a Random Forest regression model \citep{breiman2001} to predict skill change ($Ch\_Skill$). Since each farmer appears twice in the dataset (before and after training), we used 5-fold GroupKFold cross-validation, grouping by farmer ID. This ensures the model is not tested on data from a farmer it has already seen during training. We also trained an XGBoost model \citep{chen2016} as a robustness check. 
+We used a Random Forest regression model \citep{breiman2001} to predict skill change ($Ch\_Skill$). Given that each farmer appears twice in the dataset (pre- and post-training), we implemented 5-fold GroupKFold cross-validation, grouping by farmer ID. This prevents data leakage by ensuring the model is never tested on a farmer it has already seen during training. We also trained an XGBoost model \citep{chen2016} as a robustness check.
 
-We selected Random Forest settings through a grid search over \texttt{n\_estimators}, \texttt{max\_depth}, \texttt{min\_samples\_leaf}, and \texttt{max\_features}. The final settings were \texttt{n\_estimators} $= 500$, \texttt{min\_samples\_leaf} $= 10$, and \texttt{max\_features} $=$ \texttt{sqrt}. 
+We optimized the Random Forest hyperparameters via grid search. Table~\ref{tab:hyperparameters} details the search space and the final selected settings.
+
+\begin{table}[htbp]
+\centering
+\caption{Random Forest hyperparameter optimization.}
+\label{tab:hyperparameters}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Parameter} & \textbf{Final Setting} \\
+\midrule
+Number of estimators (\texttt{n\_estimators}) & 500 \\
+Min. samples per leaf (\texttt{min\_samples\_leaf}) & 10 \\
+Max. features per split (\texttt{max\_features}) & \texttt{sqrt} \\
+Max. tree depth (\texttt{max\_depth}) & None \\
+\bottomrule
+\end{tabular}
+\end{table} 
 
 \subsection{Explainable AI Analysis}
 We used TreeExplainer \citep{lundberg2017} to calculate SHAP values. Overall feature importance was measured as the average absolute SHAP value across all farmers. We then repeated this analysis separately for each farmer segment to identify which variables mattered most for each group. Finally, we compared the feature rankings of our Random Forest and XGBoost models using Spearman rank correlation to ensure our findings were not dependent on the model choice.
