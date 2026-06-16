@@ -79,22 +79,25 @@ This study provides three key contributions to the field of interpretable agricu
 %%─────────────────────────────────────────────────────────────────────────────
 
 \subsection{Machine Learning in Agriculture}
-Machine learning and computer vision are now widely used in modern agriculture for tasks such as crop monitoring, disease detection, and yield estimation. Image-based methods remain the most common approach throughout the crop production cycle \citep{ghazal2024survey}. For cattle identification, CNN-based models often outperform classical machine learning when sufficient training data are available \citep{hossain2022cattle}. Similarly, Random Forest and deep learning models have proven effective for nutrient prediction \citep{ennaji2023nutrient}, while classical methods remain competitive for plant disease detection \citep{omaye2024disease}. These findings suggest that the choice of method should depend heavily on the specific nature of the data available. 
+Machine learning and computer vision have become foundational tools in modern agriculture, enabling data-driven decision support across crop, soil, and livestock management \citep{liakos2018}. While traditional methods like SVMs and Random Forests have long been used for yield prediction, deep learning has recently emerged as a superior alternative for complex tasks \citep{kamilaris2018}. For instance, CNNs provide automated feature extraction, achieving high accuracy in disease detection without manual engineering \citep{kamilaris2018}. 
 
-However, most of these studies focus strictly on sensing and detection. Very few attempt to connect model outputs to the practical, real-world decisions that farmers or extension officers must make daily. This gap highlights the need for systems that provide clear, actionable guidance rather than just raw predictive accuracy.
+Recent research has advanced these applications toward resource-constrained settings. Advances in TinyML allow for real-time acoustic bird pest detection on low-cost microcontrollers \citep{kazeneza2026}. Similarly, hybrid models integrating multi-source data have significantly improved nutrient management \citep{ennaji2023nutrient} and price forecasting accuracy \citep{zhao2026}. These developments illustrate a clear trend: agriculture is moving from individual machine learning solutions toward robust, specialized architectures.
 
-\subsection{Explainable AI for Decision Support}
-As machine learning models grow more complex, explaining their decisions is essential to building trust in agricultural systems \citep{arrieta2020,linardatos2021}. Explanation methods are generally grouped into feature attribution, surrogate modeling, and rule extraction — all of which are integrated into the SAR framework \citep{guidotti2019}.
+\subsection{Decision Support Systems (DSS) and Integration}
+Beyond predictive models, effective decision support requires the integration of data, models, and processes into a unified framework \citep{liu2009}. Traditional stand-alone systems often struggle with the complexity of real-world environments, necessitating Integrated Decision Support Systems (IDSS) that provide coordinated and collaborative support \citep{liu2009}. 
 
-SHAP is widely used for tree-based models because it follows a fair and consistent mathematical framework \citep{lundberg2017}. Studies have shown that SHAP provides stable results across various model types, including Random Forest and XGBoost \citep{lundberg2020}. In agriculture, SHAP has been successfully applied to yield prediction and risk assessment \citep{ghosal2018,ryo2022}. 
+In environmental and landscape management, success often hinges on more than just technical performance; it requires iterative stakeholder engagement and clear visualization tools \citep{volk2010}. Research consistently shows that DSS tools are most effective when they function as learning platforms that bridge the gap between technical models and the practical needs of practitioners \citep{volk2010}. Our study builds on these lessons by ensuring that our SAR framework is not only technically integrated but also designed to facilitate clear, rule-based communication for non-technical extension officers.
 
-Even so, most XAI studies in this field stop at describing what the model learned rather than turning those insights into usable rules for practitioners \citep{linardatos2021,arrieta2020}. Frameworks that convert XAI outputs into practical decision tools are still largely unexplored \citep{ryo2022}, and applying SHAP separately within farmer segments remains a major gap that SAR addresses.
+\subsection{Explainable AI (XAI) for Decision Support}
+As machine learning models grow more complex, "black-box" systems become harder to trust, especially in critical sectors where transparency is non-negotiable \citep{hassija2024}. Current research emphasizes the need for structured taxonomies—categorizing XAI techniques into feature-based, example-based, and neural-symbolic approaches—to help stakeholders select tools that fit their specific needs \citep{speith2022, dwivedi2023}. 
+
+Within the SAR framework, feature attribution and rule extraction are key to building transparent, fair systems \citep{guidotti2019}. SHAP is particularly valued for providing stable results across various model types \citep{lundberg2017, lundberg2020, yu2026}. While agricultural studies have applied XAI to yield and risk prediction \citep{ghosal2018, ryo2022}, most research focuses on descriptive charts rather than prescriptive advice. Our study bridges this gap by converting technical XAI outputs into practical, user-friendly rules that extension officers can apply directly in the field.
 
 \subsection{Farmer Heterogeneity and Training}
-Farmers differ significantly in their skills, resources, and risk attitudes, meaning they respond differently to the same training program \citep{feder1985,anderson2004}. Research consistently shows that farmers with stronger baseline skills gain more from advanced training \citep{davis2012}. Despite this, many extension programs continue to offer a uniform curriculum, largely because they lack the tools to segment their audience effectively \citep{anderson2004}. SAR directly addresses this by using data-driven insights to match each farmer to the most suitable training track.
+Every farmer has unique skills, resources, and risk attitudes, meaning a "one-size-fits-all" training program is rarely effective \citep{feder1985, anderson2004}. Evidence shows that farmers with more experience often gain more from advanced training \citep{davis2012}. Despite this, many agricultural programs still offer uniform curricula because they lack the data to group farmers effectively by their specific needs \citep{anderson2004}. The SAR framework addresses this by using data-driven insights to match each farmer with the most relevant training track.
 
 \subsection{Large Language Models in Agriculture}
-Recent studies have explored how Large Language Models (LLMs) can consolidate agricultural knowledge through reasoning \citep{li2025llm}. However, most of these applications remain theoretical and have not been tested in real farming environments. Our study takes a different path; it is built on actual farmer data and produces clear, logical decisions that extension officers can apply immediately in the field.
+Large Language Models (LLMs) show great potential in organizing and reasoning through vast amounts of agricultural knowledge \citep{li2025llm}. However, most current applications remain theoretical. In contrast, our study is grounded in actual farmer data, focusing on providing clear, logical guidance that extension officers can use immediately to support farmers in their daily work.
 
 %%─────────────────────────────────────────────────────────────────────────────
 \section{Methodology}
@@ -300,32 +303,18 @@ and class distribution.}
 %%─────────────────────────────────────────────────────────────────────────────
 
 \subsection*{Predictive Performance}
-Our Random Forest model achieved an $R^{2}$ of 0.283, which is consistent with other research on human learning.
- In these studies, outcomes are often influenced by factors we cannot measure, such as motivation and teacher quality. 
+Our Random Forest model achieved an $R^{2}$ of 0.283, which is consistent with other research on human learning. In these studies, outcomes are often influenced by factors we cannot measure, such as motivation and teacher quality. Our goal is not just to make the most accurate prediction, but to provide clear, actionable guidance. As shown by previous research, SHAP values are reliable for finding consistent patterns even when overall accuracy is moderate. The strong agreement between our Random Forest and XGBoost models ($\rho = 0.793$) confirms that our findings reflect real patterns rather than model-specific artifacts.
 
-Our goal is not just to make the most accurate prediction, but to provide clear, actionable guidance. 
-As shown by previous research, SHAP values are reliable for finding consistent patterns even when overall accuracy is moderate. 
-The strong agreement between our Random Forest and XGBoost models ($\rho = 0.793$) confirms that 
-our findings reflect real patterns rather than errors in our model. In the SAR framework, 
-the model serves as a tool to translate complex data into simple, policy-ready guidelines.
+\subsection*{Refining XAI for Practical Policy}
+The current XAI landscape is vast, with numerous taxonomies and techniques often causing confusion for practitioners \citep{speith2022}. While comprehensive surveys provide a wide array of tools—from feature-based to neural-symbolic approaches \citep{dwivedi2023}—the challenge remains in selecting the right tool for high-stakes policy environments. 
+
+In our SAR framework, we bridge this gap by distilling these diverse XAI techniques into a focused, three-stage pipeline. Rather than overwhelming stakeholders with technical choices, we prioritize the "prescriptive" utility of the explanations. By converting technical attributions into compact IF--THEN rules, we align with the need for transparency and accountability emphasized in recent XAI literature \citep{hassija2024}. This ensures that our recommendations are not only interpretable but also directly ready for administrative implementation.
 
 \subsection*{Segment-Specific Drivers}
-Our segment-level analysis shows that the factors driving skill growth differ across groups.
-While starting skill level is the most important factor for everyone, other drivers vary. 
-
-The slight decline in average skills for the Low- and Moderate-skill groups is common in these types of assessments. 
-It is partly due to statistical factors like "regression-to-the-mean," but it also shows 
-that farmers with lower initial engagement may not benefit from general training. Meanwhile, for the High-skill group, marketing skills are the key driver. This suggests that advanced farmers need training that focuses on market knowledge rather than basic production.
+Our segment-level analysis confirms that the factors driving skill growth vary significantly. The decline in average skills for the Low- and Moderate-skill groups is a common finding, often due to statistical phenomena such as "regression-to-the-mean," but it also highlights that general training may be ineffective for farmers with low initial engagement. In contrast, for the High-skill group, marketing knowledge serves as a key driver. This suggests that advanced farmers require market-oriented training rather than basic production content.
 
 \subsection*{Practical Application}
-Our surrogate decision tree achieved 93.3\% accuracy on the full dataset and 91.4\% on unseen data. 
-This proves that our rules are reliable and not just "memorizing" the training data. 
-
-The SAR framework offers a simple, four-step workflow: (1) record farmer background, (2)
- assign the farmer to a group, (3) apply the decision rules, and (4) provide a recommendation. 
- Because the rules are written in plain IF--THEN format, extension officers can use them without 
- needing to understand machine learning. This transparency is essential for public-sector programs 
- that must be accountable to the farmers they serve.
+Our surrogate decision tree achieved 93.3\% accuracy on the full dataset and 91.4\% on unseen data. This demonstrates that our rules are reliable and generalize well beyond our training data. The SAR framework offers a simple, four-step workflow: (1) record farmer background, (2) assign the farmer to a group, (3) apply the decision rules, and (4) provide a recommendation. Because the rules are written in plain IF--THEN format, extension officers can use them without requiring specialized machine learning expertise. This transparency is essential for public-sector programs that must be accountable to the farmers they serve.
 
 %%─────────────────────────────────────────────────────────────────────────────
 \section{Conclusion}
