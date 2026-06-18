@@ -1,10 +1,22 @@
 \documentclass{BSRU-Template}
 
+% Using xelatex and fontspec for Thai language support.
+% Bibliography management with biblatex and biber.
+
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{setspace}
+\usepackage{indentfirst}
 \usepackage[style=apa]{biblatex}
 \addbibresource{refs.bib}
+
+\renewcommand{\contentsname}{สารบัญ}
+\renewcommand{\listtablename}{สารบัญตาราง}
+\renewcommand{\listfigurename}{สารบัญรูป}
+\DefineBibliographyStrings{english}{
+  bibliography = {บรรณานุกรม}
+}
+
 
 \begin{document}
 
@@ -39,6 +51,7 @@
 \tableofcontents
 \listoftables
 \listoffigures
+\setlength{\parindent}{1.25cm}
 
 \cleardoublepage
 
