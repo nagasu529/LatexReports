@@ -3,6 +3,7 @@
 \documentclass[fleqn,10pt,lineno]{wlpeerj}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
+\usepackage{url} 
 
 \title{A Cluster-Conditioned Explainable AI Framework for Interpretable Decision Support: Surrogate Rule Extraction for Agricultural Training Allocation}
 
@@ -71,16 +72,29 @@ Farmers differ in assets, education, experience, and risk preferences, so a unif
 %%─────────────────────────────────────────────────────────────────────────────
 
 \subsection{Data and Study Context}
+<<<<<<< HEAD
 The data for this study came from a panel survey of farmers in Thailand's Smart Farmer program, collected between 2018 and 2020. The program measures five skill areas: production management, input management, technology adoption, analysis and planning, and marketing. Farmers were assessed before and after training using a validated 5-point scale. The main outcome variable, $Ch\_Skill$, was defined as the difference between post-training and pre-training scores.
+=======
+The data for this study came from a panel survey of farmers in Thailand's Smart Farmer program, collected between 2022 and 2023. The program measures five skill areas: production management, input management, technology adoption, analysis and planning, and marketing. Farmers were assessed before and after training using a validated 5-point scale. The main outcome variable, $Ch\_Skill$, was defined as the difference between post-training and pre-training scores.
+>>>>>>> 80ad860 (resubmit-peerJ)
 
 Missing values were rare, accounting for less than 5\% of the data. For binary and asset variables, missing values were replaced with zero because the absence of an asset is meaningful. For continuous skill variables, missing values were replaced with the column mean, as the distributions were approximately symmetric. All numeric variables were then standardized to have a mean of zero and a standard deviation of one.
 
 \textit{Ethics and data access:} This study followed the research protocols of the Department of Agricultural Extension, Thailand. All records were anonymized before analysis, and no personal information was used. Further details are provided in the supplementary materials.
 
+<<<<<<< HEAD
 \subsection{Farmer Segmentation}
 We applied K-Means clustering \citep{macqueen1967} to 15 baseline variables, including demographics, skills, and risk perceptions.
 
 To determine the optimal number of clusters, we evaluated four standard criteria: the Elbow method, Silhouette score, Calinski--Harabasz (CH) index, and Davies--Bouldin (DB) index \citep{rouseeuw1987}. As shown in Fig.~\ref{fig:elbow}, the Elbow curve showed a clear bend at $k = 3$. The other indices also supported this choice, although the Silhouette score was modest, which is common in Likert-scale survey data.
+=======
+The dataset and analysis code are available at \url{https://doi.org/10.5281/zenodo.21095258}.
+
+\subsection{Farmer Segmentation}
+We applied K-Means clustering \citep{macqueen1967} to 15 baseline variables, including demographics, skills, and risk perceptions.
+
+To determine the optimal number of clusters, we evaluated four standard criteria: the Elbow method, Silhouette score, Calinski--Harabasz (CH) index, and Davies-Bouldin (DB) index \citep{rouseeuw1987}. As shown in Fig.~\ref{fig:elbow}, the Elbow curve showed a clear bend at $k = 3$. The other indices also supported this choice, although the Silhouette score was modest, which is common in Likert-scale survey data.
+>>>>>>> 80ad860 (resubmit-peerJ)
 
 We further tested the robustness of this result in two ways. First, we evaluated values of $k$ from 2 to 5 and found that the segment structure remained stable (Fig.~\ref{fig:sensitivity}). Second, we compared K-Means with a Gaussian Mixture Model (GMM). Although the two methods showed moderate agreement (ARI $= 0.28$), K-Means produced more balanced and easier-to-interpret groups (Fig.~\ref{fig:gmm}).
 
@@ -326,7 +340,11 @@ This research was supported by the United States Agency for International Develo
 This study was reviewed and exempted by the Kasetsart University Research Ethics Committee (Approval No. COE67/044, issued on 8 May 2024). All procedures were performed in accordance with the ethical guidelines for human research.
 
 \section*{Data and Code Availability}
-The anonymised dataset used in this study is available upon reasonable request, subject to the existing data-sharing agreement with the Department of Agricultural Extension, Thailand. The complete SAR framework pipeline—including clustering, Random Forest training, SHAP attribution analysis, and surrogate rule extraction scripts—is maintained in a version-controlled repository. This repository will be made publicly available on GitHub upon acceptance of this manuscript to ensure full reproducibility of our results.
+The anonymised dataset and complete SAR framework pipeline including 
+clustering, Random Forest training, SHAP attribution analysis, 
+surrogate rule extraction, hyperparameter grid search, and ablation 
+study scripts are publicly available at:
+\url{https://doi.org/10.5281/zenodo.21095258}.
 
 \section*{Declaration of Competing Interest}
 The authors declare no competing interests.
@@ -336,7 +354,14 @@ The authors declare no competing interests.
 \textbf{Jumtip Seneerattanaprayul:} Questionnaire Design, Data Collection, Impact Evaluation (Difference-in-Difference analysis), Result Validation.
 
 \section*{Declaration of Generative AI and AI-assisted technologies}
-During the preparation of this manuscript, the authors used Generative AI models to assist with language refinement and structural formatting. All analytical decisions, algorithmic implementations, and substantive content were developed by the authors. The authors reviewed, edited, and verified all generated material and take full responsibility for the final content of the article.
+During the preparation of this manuscript, the authors used Claude 
+(Anthropic, PBC; \url{https://claude.ai}; version Claude Sonnet, 
+accessed May - June 2025) to assist with language refinement, sentence 
+simplification. All analytical decisions, 
+algorithmic implementations, statistical analyses, and substantive 
+content were developed independently by the authors. The authors 
+reviewed, edited, and verified all AI-assisted text and take full 
+responsibility for the final content of this article.
 
 \bibliography{sample}
 
