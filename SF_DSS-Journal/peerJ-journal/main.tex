@@ -72,29 +72,16 @@ Farmers differ in assets, education, experience, and risk preferences, so a unif
 %%─────────────────────────────────────────────────────────────────────────────
 
 \subsection{Data and Study Context}
-<<<<<<< HEAD
-The data for this study came from a panel survey of farmers in Thailand's Smart Farmer program, collected between 2018 and 2020. The program measures five skill areas: production management, input management, technology adoption, analysis and planning, and marketing. Farmers were assessed before and after training using a validated 5-point scale. The main outcome variable, $Ch\_Skill$, was defined as the difference between post-training and pre-training scores.
-=======
 The data for this study came from a panel survey of farmers in Thailand's Smart Farmer program, collected between 2022 and 2023. The program measures five skill areas: production management, input management, technology adoption, analysis and planning, and marketing. Farmers were assessed before and after training using a validated 5-point scale. The main outcome variable, $Ch\_Skill$, was defined as the difference between post-training and pre-training scores.
->>>>>>> 80ad860 (resubmit-peerJ)
 
 Missing values were rare, accounting for less than 5\% of the data. For binary and asset variables, missing values were replaced with zero because the absence of an asset is meaningful. For continuous skill variables, missing values were replaced with the column mean, as the distributions were approximately symmetric. All numeric variables were then standardized to have a mean of zero and a standard deviation of one.
 
-\textit{Ethics and data access:} This study followed the research protocols of the Department of Agricultural Extension, Thailand. All records were anonymized before analysis, and no personal information was used. Further details are provided in the supplementary materials.
-
-<<<<<<< HEAD
-\subsection{Farmer Segmentation}
-We applied K-Means clustering \citep{macqueen1967} to 15 baseline variables, including demographics, skills, and risk perceptions.
-
-To determine the optimal number of clusters, we evaluated four standard criteria: the Elbow method, Silhouette score, Calinski--Harabasz (CH) index, and Davies--Bouldin (DB) index \citep{rouseeuw1987}. As shown in Fig.~\ref{fig:elbow}, the Elbow curve showed a clear bend at $k = 3$. The other indices also supported this choice, although the Silhouette score was modest, which is common in Likert-scale survey data.
-=======
-The dataset and analysis code are available at \url{https://doi.org/10.5281/zenodo.21095258}.
+\textit{Ethics and data access:} This study followed the research protocols of the Department of Agricultural Extension, Thailand. All records were anonymized before analysis, and no personal information was used. Informed consent was obtained during Smart Farmer program registration. The dataset and analysis code supporting this study are publicly available at \url{https://doi.org/10.5281/zenodo.21095258}. Further details are provided in the supplementary materials.
 
 \subsection{Farmer Segmentation}
 We applied K-Means clustering \citep{macqueen1967} to 15 baseline variables, including demographics, skills, and risk perceptions.
 
-To determine the optimal number of clusters, we evaluated four standard criteria: the Elbow method, Silhouette score, Calinski--Harabasz (CH) index, and Davies-Bouldin (DB) index \citep{rouseeuw1987}. As shown in Fig.~\ref{fig:elbow}, the Elbow curve showed a clear bend at $k = 3$. The other indices also supported this choice, although the Silhouette score was modest, which is common in Likert-scale survey data.
->>>>>>> 80ad860 (resubmit-peerJ)
+To determine the optimal number of clusters, we evaluated four standard criteria: the Elbow method, Silhouette score, Calinski-Harabasz (CH) index, and Davies-Bouldin (DB) index \citep{rouseeuw1987}. As shown in Fig.~\ref{fig:elbow}, the Elbow curve showed a clear bend at $k = 3$. The other indices also supported this choice, although the Silhouette score was modest, which is common in Likert-scale survey data.
 
 We further tested the robustness of this result in two ways. First, we evaluated values of $k$ from 2 to 5 and found that the segment structure remained stable (Fig.~\ref{fig:sensitivity}). Second, we compared K-Means with a Gaussian Mixture Model (GMM). Although the two methods showed moderate agreement (ARI $= 0.28$), K-Means produced more balanced and easier-to-interpret groups (Fig.~\ref{fig:gmm}).
 
@@ -221,65 +208,65 @@ Held-out test (20\% farmers) & 81 & \textbf{91.4\%} \\
 \label{fig:framework}
 \end{figure*}
 
-\begin{figure}[htbp]
+\begin{figure*}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{figures/fig_elbow_silhouette.png}
-\caption{Cluster validity across $k = 2$--$8$: Elbow, Silhouette, Calinski--Harabasz, and Davies--Bouldin. At $k = 3$: Silhouette $= 0.185$, CH $= 202.67$, DB $= 1.835$.}
+\includegraphics[width=\textwidth]{figures/fig2_elbow_silhouette.png}
+\caption{Cluster validity across $k = 2$--$8$: Elbow, Silhouette, Calinski-Harabasz, and Davies-Bouldin. At $k = 3$: Silhouette $= 0.185$, CH $= 202.67$, DB $= 1.835$.}
 \label{fig:elbow}
-\end{figure}
+\end{figure*}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{figures/fig2_clusters_new.png}
+\includegraphics[width=\columnwidth]{figures/fig3_clusters_new.png}
 \caption{Population segmentation via K-Means ($k = 3$) in PCA space. Three clusters show different profiles.}
 \label{fig:clusters}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{figures/fig_k_sensitivity.png}
+\includegraphics[width=\columnwidth]{figures/fig4_k_sensitivity.png}
 \caption{K-sensitivity analysis: validity indices for $k = 2$--$5$. The segment structure remains consistent across values of $k$, supporting the robustness of the three-segment solution.}
 \label{fig:sensitivity}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{figures/fig_gmm_robustness.png}
+\includegraphics[width=\columnwidth]{figures/fig5_gmm_robustness.png}
 \caption{Clustering robustness: K-Means versus GMM ($k = 3$). Adjusted Rand Index = 0.28. K-Means produces more balanced and interpretable segment groupings than GMM in this Likert-scale dataset.}
 \label{fig:gmm}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{figures/fig3_importance_new.png}
+\includegraphics[width=\columnwidth]{figures/fig6_importance_new.png}
 \caption{Global SHAP importance across all observations ($n = 833$). \texttt{All\_Skill} is the top driver.}
 \label{fig:importance}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{figures/fig_shap_robustness.png}
+\includegraphics[width=\columnwidth]{figures/fig7_shap_robustness.png}
 \caption{SHAP robustness: RF vs. XGBoost ranking agreement ($\rho = 0.793$, $p < 0.001$).}
 \label{fig:robustness}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{figures/fig4_shap_new.png}
+\includegraphics[width=\columnwidth]{figures/fig8_shap_beeswarm.png}
 \caption{SHAP beeswarm: feature contribution patterns ($n = 833$). Red = high, blue = low values.}
 \label{fig:shap}
 \end{figure}
 
 \begin{figure*}[htbp]
 \centering
-\includegraphics[width=\textwidth]{figures/fig4b_cluster_shap_new.png}
+\includegraphics[width=\textwidth]{figures/fig9_cluster_shap_new.png}
 \caption{Cluster-stratified SHAP: three segments show different feature patterns ($n = 271, 228, 334$).}
 \label{fig:clusterShap}
 \end{figure*}
 
 \begin{figure*}[htbp]
 \centering
-\includegraphics[width=\textwidth]{figures/fig5_rules_new.png}
+\includegraphics[width=\textwidth]{figures/fig10_rules_new.png}
 \caption{Surrogate decision tree (depth 3): in-sample accuracy 93.3\% ($n = 817$), held-out 91.4\%. Node labels show the splitting feature, threshold, sample count, and class distribution.}
 \label{fig:rules}
 \end{figure*}
@@ -340,10 +327,10 @@ This research was supported by the United States Agency for International Develo
 This study was reviewed and exempted by the Kasetsart University Research Ethics Committee (Approval No. COE67/044, issued on 8 May 2024). All procedures were performed in accordance with the ethical guidelines for human research.
 
 \section*{Data and Code Availability}
-The anonymised dataset and complete SAR framework pipeline including 
+The anonymised dataset and complete SAR framework pipeline---including 
 clustering, Random Forest training, SHAP attribution analysis, 
 surrogate rule extraction, hyperparameter grid search, and ablation 
-study scripts are publicly available at:
+study scripts---are publicly available at 
 \url{https://doi.org/10.5281/zenodo.21095258}.
 
 \section*{Declaration of Competing Interest}
@@ -355,7 +342,7 @@ The authors declare no competing interests.
 
 \section*{Declaration of Generative AI and AI-assisted technologies}
 During the preparation of this manuscript, the authors used Claude 
-(Anthropic, PBC; \url{https://claude.ai}; version Claude Sonnet, 
+(Anthropic, claude.ai version Claude Sonnet, 
 accessed May - June 2025) to assist with language refinement, sentence 
 simplification. All analytical decisions, 
 algorithmic implementations, statistical analyses, and substantive 
