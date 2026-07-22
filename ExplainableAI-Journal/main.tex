@@ -210,63 +210,63 @@ Held-out test (20\% farmers) & 81 & \textbf{91.4\%} \\
 
 \begin{figure*}[htbp]
 \centering
-\includegraphics[width=\textwidth]{figures/fig2_elbow_silhouette.png}
+\includegraphics[width=\textwidth]{figures/fig2_elbow_silhouette.pdf}
 \caption{Cluster validity across $k = 2$--$8$: Elbow, Silhouette, Calinski-Harabasz, and Davies-Bouldin. At $k = 3$: Silhouette $= 0.185$, CH $= 202.67$, DB $= 1.835$.}
 \label{fig:elbow}
 \end{figure*}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{figures/fig3_clusters_new.png}
+\includegraphics[width=\columnwidth]{figures/fig3_clusters_new.pdf}
 \caption{Population segmentation via K-Means ($k = 3$) in PCA space. Three clusters show different profiles.}
 \label{fig:clusters}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{figures/fig4_k_sensitivity.png}
+\includegraphics[width=\columnwidth]{figures/fig4_k_sensitivity.pdf}
 \caption{K-sensitivity analysis: validity indices for $k = 2$--$5$. The segment structure remains consistent across values of $k$, supporting the robustness of the three-segment solution.}
 \label{fig:sensitivity}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{figures/fig5_gmm_robustness.png}
+\includegraphics[width=\columnwidth]{figures/fig5_gmm_robustness.pdf}
 \caption{Clustering robustness: K-Means versus GMM ($k = 3$). Adjusted Rand Index = 0.28. K-Means produces more balanced and interpretable segment groupings than GMM in this Likert-scale dataset.}
 \label{fig:gmm}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{figures/fig6_importance_new.png}
+\includegraphics[width=\columnwidth]{figures/fig6_importance_new.pdf}
 \caption{Global SHAP importance across all observations ($n = 833$). \texttt{All\_Skill} is the top driver.}
 \label{fig:importance}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{figures/fig7_shap_robustness.png}
+\includegraphics[width=\columnwidth]{figures/fig7_shap_robustness.pdf}
 \caption{SHAP robustness: RF vs. XGBoost ranking agreement ($\rho = 0.793$, $p < 0.001$).}
 \label{fig:robustness}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{figures/fig8_shap_beeswarm.png}
+\includegraphics[width=\columnwidth]{figures/fig8_shap_beeswarm.pdf}
 \caption{SHAP beeswarm: feature contribution patterns ($n = 833$). Red = high, blue = low values.}
 \label{fig:shap}
 \end{figure}
 
 \begin{figure*}[htbp]
 \centering
-\includegraphics[width=\textwidth]{figures/fig9_cluster_shap_new.png}
+\includegraphics[width=\textwidth]{figures/fig9_cluster_shap_new.pdf}
 \caption{Cluster-stratified SHAP: three segments show different feature patterns ($n = 271, 228, 334$).}
 \label{fig:clusterShap}
 \end{figure*}
 
 \begin{figure*}[htbp]
 \centering
-\includegraphics[width=\textwidth]{figures/fig10_rules_new.png}
+\includegraphics[width=\textwidth]{figures/fig10_rules_new.pdf}
 \caption{Surrogate decision tree (depth 3): in-sample accuracy 93.3\% ($n = 817$), held-out 91.4\%. Node labels show the splitting feature, threshold, sample count, and class distribution.}
 \label{fig:rules}
 \end{figure*}
